@@ -1,21 +1,20 @@
 @font-face {
-    font-family: 'Averta_CY';
-    src: url("averta_cy.woff") format("woff");
-    font-weight: 700;
-    font-display: swap;
+  font-family: 'Averta';
+  src: url("../fonts/averta_demo.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Averta_Demo';
-    src: url("averta_demo.woff") format("woff");
-    font-weight: 400;
-    font-display: swap;
+  font-family: 'Averta';
+  src: url("../fonts/Averta_CY_Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
 }
 
-
 @font-face {
-    font-family: 'Zona';
-    src: url("ZonaPro-Bold.woff") format("woff");
-    font-weight: 700;
-    font-display: swap;
+  font-family: 'Zona Pro';
+  src: url("../fonts/ZonaPro-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
 }
