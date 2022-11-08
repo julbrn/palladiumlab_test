@@ -1,0 +1,59 @@
+@import url(./vendor/fonts/fonts.css);
+$dark-bg-color: #111;
+$font-color: #fff;
+$font-opacity: 72%;
+$font_Zona: 'Zona', sans-serif;
+$font_AvertaCy: 'Averta_CY', sans-serif;
+$font_AvertaDemo: 'Averta_Demo', sans-serif;
+
+.page {
+    background-color: $dark-bg-color;
+    max-width: 1680px;
+    height: 100%;
+    font-family: $font_AvertaDemo;
+    color: $font-color;
+}
+
+.logo__image {
+    width: 170px;
+    height: 42px;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    &__container {
+        width: 100%;
+    }
+    &__row {
+        display: flex;
+        width: 100%;
+    }
+    &__column {
+        &_logo {
+
+        }
+        &_contacts {
+
+        }
+        &_contacts-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        &_feedback {
+
+        }
+        &_lang {
+
+        }
+        &_lang-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

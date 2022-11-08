@@ -1,0 +1,38 @@
+@import url(./vendor/fonts/fonts.css);
+.page {
+  background-color: #111;
+  max-width: 1680px;
+  height: 100%;
+  font-family: "Averta_Demo", sans-serif;
+  color: #fff;
+}
+
+.logo__image {
+  width: 170px;
+  height: 42px;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header__container {
+  width: 100%;
+}
+.header__row {
+  display: flex;
+  width: 100%;
+}
+.header__column_contacts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header__column_lang-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
