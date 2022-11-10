@@ -8,15 +8,18 @@
 
 .page {
   background-color: #111;
-  max-width: 1680px;
   min-width: 320px;
   width: 100%;
   font-family: "Averta", sans-serif;
   font-weight: 400;
   color: #fff;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  min-height: 320px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.content {
+  position: relative;
 }
 
 .logo__image {
@@ -82,19 +85,17 @@
   align-items: center;
 }
 
-.content {
-  width: 100vw;
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-content: center;
-}
-
 .hero {
   display: flex;
-  align-content: center;
   justify-content: center;
+  background-image: url("./img/Palladiumlab_background.svg");
+  background-repeat: no-repeat;
+  background-size: 1360px 548px;
+  background-position: center center;
+  height: 100vh;
+  overflow: hidden;
   width: 100%;
+  position: relative;
 }
 .hero__container {
   display: flex;
@@ -109,6 +110,7 @@
   font-size: 60px;
   line-height: 1.16;
   max-width: 732px;
+  margin-top: 25px;
   margin-bottom: 40px;
   text-align: center;
 }
@@ -127,6 +129,7 @@
   line-height: 1.33;
   list-style: none;
   display: flex;
+  opacity: 72%;
 }
 .hero__service-item {
   position: relative;
@@ -136,14 +139,55 @@
   position: absolute;
   width: 6px;
   height: 6px;
-  right: 0;
-  left: 4px;
   bottom: 8px;
+  right: -8px;
   border-radius: 50%;
   background-color: #fff;
 }
 .hero__service-item:not(:first-of-type) {
   padding-left: 24px;
+}
+
+.main-container {
+  width: 100%;
+  padding-left: 270px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.skills {
+  width: 100%;
+}
+.skills__container {
+  margin-top: 47px;
+  display: flex;
+  flex-direction: column;
+  width: 1110px;
+}
+.skills__description {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.16;
+  font-size: 48px;
+  margin: 45px 0;
+}
+.skills__title {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 72%;
+}
+
+.curly-link {
+  text-transform: uppercase;
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
 /*# sourceMappingURL=styles.css.map */
