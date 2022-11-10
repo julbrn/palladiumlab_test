@@ -23,6 +23,8 @@ $font_Averta: 'Averta', sans-serif;
   min-height: 320px;
   position: relative;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
@@ -193,6 +195,7 @@ $font_Averta: 'Averta', sans-serif;
 
   &__container {
     margin-top: 47px;
+    margin-bottom: 96px;
     display: flex;
     flex-direction: column;
     width: 1110px;
@@ -218,12 +221,109 @@ $font_Averta: 'Averta', sans-serif;
 }
 
 
-.curly-link {
+.wavy-link {
   text-transform: uppercase;
+  padding-bottom: 25px;
   font-family: $font_Averta;
   font-weight: 700;
   line-height: 1.5;
   font-size: 12px;
   letter-spacing: 3px;
+  background-image: url('./img/wavy-line.svg');
+  background-repeat: no-repeat;
+  background-position: 0 25px;
+
+  &:hover {
+    background-image: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 15px 36px;
+  }
 }
+
+.projects {
+  padding-bottom: 192px;
+}
+
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
+  max-width: 1138px;
+
+  & __info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  &__img-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  &__category {
+    font-family: $font_Averta;
+    font-weight: 700;
+    line-height: 1.5;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: $font-opacity;
+  }
+
+  &__name {
+    font-family: $font_Averta;
+    font-weight: 700;
+    line-height: 1.16;
+    font-size: 48px;
+    padding-top: 9px;
+  }
+
+  &__description {
+    font-family: $font_Averta;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.66;
+    opacity: $font-opacity;
+    padding-top: 29px;
+    padding-bottom: 35px;
+  }
+
+  &__img {
+    height: 668px;
+    width: 526px;
+  }
+
+  &:nth-child(even) .project__info {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  &:nth-child(even) .project__img-container {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &:nth-child(odd) .project__info {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &:nth-child(odd) .project__img-container {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 85px;
+    grid-row: 1;
+  }
+}
+
+
 

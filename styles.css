@@ -16,6 +16,8 @@
   min-height: 320px;
   position: relative;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
@@ -160,6 +162,7 @@
 }
 .skills__container {
   margin-top: 47px;
+  margin-bottom: 96px;
   display: flex;
   flex-direction: column;
   width: 1110px;
@@ -181,13 +184,95 @@
   opacity: 72%;
 }
 
-.curly-link {
+.wavy-link {
   text-transform: uppercase;
+  padding-bottom: 25px;
   font-family: "Averta", sans-serif;
   font-weight: 700;
   line-height: 1.5;
   font-size: 12px;
   letter-spacing: 3px;
+  background-image: url("./img/wavy-line.svg");
+  background-repeat: no-repeat;
+  background-position: 0 25px;
+}
+.wavy-link:hover {
+  background-image: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 15px 36px;
+}
+
+.projects {
+  padding-bottom: 192px;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
+  max-width: 1138px;
+}
+.project __info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.project__img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+.project__category {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 72%;
+}
+.project__name {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.16;
+  font-size: 48px;
+  padding-top: 9px;
+}
+.project__description {
+  font-family: "Averta", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.66;
+  opacity: 72%;
+  padding-top: 29px;
+  padding-bottom: 35px;
+}
+.project__img {
+  height: 668px;
+  width: 526px;
+}
+.project:nth-child(even) .project__info {
+  grid-column: 2;
+  grid-row: 1;
+}
+.project:nth-child(even) .project__img-container {
+  grid-column: 1;
+  grid-row: 1;
+}
+.project:nth-child(odd) .project__info {
+  grid-column: 1;
+  grid-row: 1;
+}
+.project:nth-child(odd) .project__img-container {
+  grid-column: 2;
+  grid-row: 1;
+}
+.project:not(:last-of-type) {
+  margin-bottom: 85px;
+  grid-row: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */
