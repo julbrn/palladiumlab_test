@@ -27,8 +27,7 @@ $font_Averta: 'Averta', sans-serif;
   justify-content: center;
 }
 
-.content {
-  position: relative;
+.main {
 }
 
 .logo__image {
@@ -114,16 +113,14 @@ $font_Averta: 'Averta', sans-serif;
 }
 
 .hero {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   background-image: url('./img/Palladiumlab_background.svg');
   background-repeat: no-repeat;
   background-size: 1360px 548px;
   background-position: center center;
-  height: 100vh;
-  overflow: hidden;
-  width: 100%;
   position: relative;
+  overflow: hidden;
+  display: flex;
 
   &__container {
     display: flex;
@@ -131,7 +128,19 @@ $font_Averta: 'Averta', sans-serif;
     align-items: center;
     justify-content: center;
     width: 100%;
+    width: 1170px;
+    margin: 0 auto;
   }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+  }
+
 
   &__title {
     font-family: $font_Averta;
@@ -187,7 +196,7 @@ $font_Averta: 'Averta', sans-serif;
   width: 100%;
   padding-left: 270px;
   position: relative;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .skills {
@@ -325,5 +334,106 @@ $font_Averta: 'Averta', sans-serif;
   }
 }
 
+.team {
 
+
+  &__member {
+    height: 946px;
+    background-image: url(./img/Mikhail.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+  }
+
+  &__member-name {
+    font-family: $font_Averta;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.16;
+    padding-top: 522px;
+  }
+
+  &__member-job {
+    font-family: $font_Averta;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.66;
+    opacity: $font-opacity;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .arrows {
+    &__btn {
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      height: 60px;
+      width: 60px;
+      background-color: transparent;
+
+      &_back {
+        margin-right: 24px;
+        background-image: url("./img/arrow_back.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      &_forward {
+        background-image: url("./img/arrow_forward.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+    }
+  }
+}
+
+.contacts {
+  padding-top: 192px;
+  height: 100vh;
+
+  &__links {
+    list-style: none;
+    display: flex;
+    margin-bottom: 70px;
+  }
+
+  &__links-item:not(:first-of-type) {
+    padding-left: 36px;
+  }
+
+  &__links-item_big {
+    font-family: $font_Averta;
+    font-weight: 700;
+    line-height: 1.16;
+    font-size: 36px;
+
+
+    &:hover {
+      background-image: none;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 15px 36px;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font_Averta;
+    font-weight: 700;
+    line-height: 1.5;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: $font-opacity;
+  }
+
+  &__text {
+    font-family: $font_Averta;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.16;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    max-width: 1104px;
+  }
+}
 

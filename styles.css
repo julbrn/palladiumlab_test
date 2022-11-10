@@ -20,10 +20,6 @@
   justify-content: center;
 }
 
-.content {
-  position: relative;
-}
-
 .logo__image {
   width: 170px;
   height: 42px;
@@ -88,16 +84,14 @@
 }
 
 .hero {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   background-image: url("./img/Palladiumlab_background.svg");
   background-repeat: no-repeat;
   background-size: 1360px 548px;
   background-position: center center;
-  height: 100vh;
-  overflow: hidden;
-  width: 100%;
   position: relative;
+  overflow: hidden;
+  display: flex;
 }
 .hero__container {
   display: flex;
@@ -105,6 +99,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  width: 1170px;
+  margin: 0 auto;
+}
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
 }
 .hero__title {
   font-family: "Averta", sans-serif;
@@ -154,7 +158,7 @@
   width: 100%;
   padding-left: 270px;
   position: relative;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .skills {
@@ -273,6 +277,91 @@
 .project:not(:last-of-type) {
   margin-bottom: 85px;
   grid-row: 1;
+}
+
+.team__member {
+  height: 946px;
+  background-image: url(./img/Mikhail.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+}
+.team__member-name {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.16;
+  padding-top: 522px;
+}
+.team__member-job {
+  font-family: "Averta", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.66;
+  opacity: 72%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.team .arrows__btn {
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+}
+.team .arrows__btn_back {
+  margin-right: 24px;
+  background-image: url("./img/arrow_back.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.team .arrows__btn_forward {
+  background-image: url("./img/arrow_forward.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.contacts {
+  padding-top: 192px;
+  height: 100vh;
+}
+.contacts__links {
+  list-style: none;
+  display: flex;
+  margin-bottom: 70px;
+}
+.contacts__links-item:not(:first-of-type) {
+  padding-left: 36px;
+}
+.contacts__links-item_big {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.16;
+  font-size: 36px;
+}
+.contacts__links-item_big:hover {
+  background-image: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 15px 36px;
+}
+.contacts__subtitle {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 72%;
+}
+.contacts__text {
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.16;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  max-width: 1104px;
 }
 
 /*# sourceMappingURL=styles.css.map */
