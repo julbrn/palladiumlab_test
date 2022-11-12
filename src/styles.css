@@ -1,11 +1,32 @@
-@import url(./vendor/normalize.css);
-@import url(./vendor/fonts/fonts.css);
+@import url(vendor/normalize.css);
+@import url(vendor/fonts/fonts.css);
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
+.round-cursor {
+  display: none;
+}
+
+@media (any-pointer: fine) {
+  .round-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  .round-cursor__circle {
+    stroke: #fff;
+    fill: transparent;
+    stroke-width: 2px;
+    z-index: 1000;
+  }
+}
 .page {
   background-color: #111;
   min-width: 320px;
@@ -28,6 +49,21 @@
 .link {
   text-decoration: none;
   color: inherit;
+}
+.link_lang {
+  padding: 12px 14px;
+}
+.link:focus {
+  border: solid 2px #fff;
+  border-radius: 50%;
+  outline: none;
+}
+.link:hover {
+  cursor: pointer;
+}
+.link:hover ~ .round-cursor {
+  transform: translate(-50%, -50%) scale(5);
+  opacity: 1;
 }
 
 .header {
@@ -64,9 +100,7 @@
 .header__column_lang-list {
   list-style: none;
   display: flex;
-}
-.header__column_lang-item:not(:last-of-type) {
-  padding-right: 28px;
+  width: 98px;
 }
 
 .footer {
@@ -85,7 +119,7 @@
 
 .hero {
   text-align: center;
-  background-image: url("./img/Palladiumlab_background.svg");
+  background-image: url("img/Palladiumlab_background.svg");
   background-repeat: no-repeat;
   background-size: 1360px 548px;
   background-position: center center;
@@ -196,7 +230,7 @@
   line-height: 1.5;
   font-size: 12px;
   letter-spacing: 3px;
-  background-image: url("./img/wavy-line.svg");
+  background-image: url("img/wavy-line.svg");
   background-repeat: no-repeat;
   background-position: 0 25px;
 }
@@ -221,13 +255,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .project__img-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .project__category {
   font-family: "Averta", sans-serif;
@@ -281,10 +315,11 @@
 
 .team__member {
   height: 946px;
-  background-image: url(./img/Mikhail.png);
+  background-image: url(img/Mikhail.png);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: contain;
+  z-index: 1;
 }
 .team__member-name {
   font-family: "Averta", sans-serif;
@@ -311,12 +346,12 @@
 }
 .team .arrows__btn_back {
   margin-right: 24px;
-  background-image: url("./img/arrow_back.png");
+  background-image: url("img/arrow_back.png");
   background-repeat: no-repeat;
   background-position: center center;
 }
 .team .arrows__btn_forward {
-  background-image: url("./img/arrow_forward.png");
+  background-image: url("img/arrow_forward.png");
   background-repeat: no-repeat;
   background-position: center center;
 }

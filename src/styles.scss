@@ -1,16 +1,45 @@
-@import url(./vendor/normalize.css);
-@import url(./vendor/fonts/fonts.css);
+@import url(vendor/normalize.css);
+@import url(vendor/fonts/fonts.css);
 
 $dark-bg-color: #111;
 $font-color: #fff;
 $font-opacity: 72%;
 $font_Zona: 'Zona Pro', sans-serif;
 $font_Averta: 'Averta', sans-serif;
+$transparent-white: rgba(255, 255, 255, 0.2);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
+}
+
+.round-cursor {
+  display: none;
+
+}
+
+@media (any-pointer: fine) {
+  .round-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    z-index: 1000;
+
+    &__circle {
+      stroke: $font-color;
+      fill: transparent;
+      stroke-width: 2px;
+      z-index: 1000;
+    }
+  }
+}
+
+span {
+
 }
 
 .page {
@@ -38,6 +67,25 @@ $font_Averta: 'Averta', sans-serif;
 .link {
   text-decoration: none;
   color: inherit;
+
+  &_lang {
+    padding: 12px 14px;
+  }
+
+  &:focus {
+    border: solid 2px $font-color;
+    border-radius: 50%;
+    outline: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover ~ .round-cursor {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 1;
+  }
 }
 
 .header {
@@ -82,17 +130,10 @@ $font_Averta: 'Averta', sans-serif;
       padding: 0 60px;
     }
 
-    &_lang {
-
-    }
-
     &_lang-list {
       list-style: none;
       display: flex;
-    }
-
-    &_lang-item:not(:last-of-type) {
-      padding-right: 28px;
+      width: 98px;
     }
   }
 }
@@ -114,7 +155,7 @@ $font_Averta: 'Averta', sans-serif;
 
 .hero {
   text-align: center;
-  background-image: url('./img/Palladiumlab_background.svg');
+  background-image: url('img/Palladiumlab_background.svg');
   background-repeat: no-repeat;
   background-size: 1360px 548px;
   background-position: center center;
@@ -238,13 +279,13 @@ $font_Averta: 'Averta', sans-serif;
   line-height: 1.5;
   font-size: 12px;
   letter-spacing: 3px;
-  background-image: url('./img/wavy-line.svg');
+  background-image: url('img/wavy-line.svg');
   background-repeat: no-repeat;
   background-position: 0 25px;
 
   &:hover {
     background-image: none;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid $transparent-white;
     border-radius: 30px;
     padding: 15px 36px;
   }
@@ -265,14 +306,14 @@ $font_Averta: 'Averta', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
   }
 
   &__img-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
   }
 
   &__category {
@@ -339,10 +380,11 @@ $font_Averta: 'Averta', sans-serif;
 
   &__member {
     height: 946px;
-    background-image: url(./img/Mikhail.png);
+    background-image: url(img/Mikhail.png);
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
+    z-index: 1;
   }
 
   &__member-name {
@@ -366,20 +408,20 @@ $font_Averta: 'Averta', sans-serif;
   .arrows {
     &__btn {
       border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid $transparent-white;
       height: 60px;
       width: 60px;
       background-color: transparent;
 
       &_back {
         margin-right: 24px;
-        background-image: url("./img/arrow_back.png");
+        background-image: url("img/arrow_back.png");
         background-repeat: no-repeat;
         background-position: center center;
       }
 
       &_forward {
-        background-image: url("./img/arrow_forward.png");
+        background-image: url("img/arrow_forward.png");
         background-repeat: no-repeat;
         background-position: center center;
       }
@@ -410,7 +452,7 @@ $font_Averta: 'Averta', sans-serif;
 
     &:hover {
       background-image: none;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid $transparent-white;
       border-radius: 30px;
       padding: 15px 36px;
     }
