@@ -1,5 +1,5 @@
-@import url(vendor/normalize.css);
-@import url(vendor/fonts/fonts.css);
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
 
 $dark-bg-color: #111;
 $font-color: #fff;
@@ -32,7 +32,7 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     &__circle {
       stroke: $font-color;
       fill: transparent;
-      stroke-width: 2px;
+      stroke-width: 2.5px;
       z-index: 1000;
     }
   }
@@ -155,7 +155,7 @@ span {
 
 .hero {
   text-align: center;
-  background-image: url('img/Palladiumlab_background.svg');
+  background-image: url('../img/Palladiumlab_background.svg');
   background-repeat: no-repeat;
   background-size: 1360px 548px;
   background-position: center center;
@@ -279,13 +279,13 @@ span {
   line-height: 1.5;
   font-size: 12px;
   letter-spacing: 3px;
-  background-image: url('img/wavy-line.svg');
+  background-image: url('../img/wavy-line.svg');
   background-repeat: no-repeat;
   background-position: 0 25px;
 
   &:hover {
     background-image: none;
-    border: 2px solid $transparent-white;
+    border: 2px solid $font-color;
     border-radius: 30px;
     padding: 15px 36px;
   }
@@ -380,7 +380,7 @@ span {
 
   &__member {
     height: 946px;
-    background-image: url(img/Mikhail.png);
+    background-image: url(../img/Mikhail.png);
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
@@ -415,13 +415,13 @@ span {
 
       &_back {
         margin-right: 24px;
-        background-image: url("img/arrow_back.png");
+        background-image: url("../img/arrow_back.png");
         background-repeat: no-repeat;
         background-position: center center;
       }
 
       &_forward {
-        background-image: url("img/arrow_forward.png");
+        background-image: url("../img/arrow_forward.png");
         background-repeat: no-repeat;
         background-position: center center;
       }

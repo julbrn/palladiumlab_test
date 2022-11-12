@@ -9,7 +9,6 @@ export default class Cursor {
   constructor(el) {
     this.DOM = {el: el};
     this.DOM.el.style.opacity = '0';
-
     this.bounds = this.DOM.el.getBoundingClientRect();
 
     this.renderedStyles = {
@@ -22,21 +21,11 @@ export default class Cursor {
     this.onCursorMove = () => {
       this.renderedStyles.tx.previous = this.renderedStyles.tx.current = cursor.x - this.bounds.width / 2;
       this.renderedStyles.ty.previous = this.renderedStyles.ty.previous = cursor.y - this.bounds.height / 2;
-      gsap.to(this.DOM.el, {duration: 0.9, ease: 'Power3.easeOut', opacity: 1});
       requestAnimationFrame(() => this.render());
       window.removeEventListener('mousemove', this.onCursorMove);
+
     };
     window.addEventListener('mousemove', this.onCursorMove);
-  }
-
-  enter() {
-    this.renderedStyles['scale'].current = 4;
-    this.renderedStyles['opacity'].current = 0.2;
-  }
-
-  leave() {
-    this.renderedStyles['scale'].current = 1;
-    this.renderedStyles['opacity'].current = 1;
   }
 
   render() {
