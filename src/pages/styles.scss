@@ -1,6 +1,5 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
-@import 'animate.css';
 
 $dark-bg-color: #111;
 $font-color: #fff;
@@ -39,8 +38,32 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   }
 }
 
-span {
+.animate__slideInUp {
 
+  &:nth-child(1) {
+    animation: 1s slideInUp 0ms;
+  }
+
+  &:nth-child(2) {
+    animation: 1s slideInUp 200ms;
+  }
+
+  &:nth-child(3) {
+    animation: 1s slideInUp 400ms;
+  }
+
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .page {
@@ -55,6 +78,57 @@ span {
   overflow-x: hidden;
   display: flex;
   justify-content: center;
+
+  &__noise {
+    background: transparent url('../img/Noise.png') repeat;
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    animation: bg-animation .2s infinite;
+    opacity: .9;
+    visibility: visible;
+  }
+
+  @keyframes bg-animation {
+    0% {
+      transform: translate(0, 0)
+    }
+    10% {
+      transform: translate(-5%, -5%)
+    }
+    20% {
+      transform: translate(-10%, 5%)
+    }
+    30% {
+      transform: translate(5%, -10%)
+    }
+    40% {
+      transform: translate(-5%, 15%)
+    }
+    50% {
+      transform: translate(-10%, 5%)
+    }
+    60% {
+      transform: translate(15%, 0)
+    }
+    70% {
+      transform: translate(0, 10%)
+    }
+    80% {
+      transform: translate(-15%, 0)
+    }
+    90% {
+      transform: translate(10%, 5%)
+    }
+    100% {
+      transform: translate(5%, 0)
+    }
+  }
+
 }
 
 .main {
