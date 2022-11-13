@@ -12,6 +12,7 @@ $breakpoint2: 1440px;
 $breakpoint3: 1240px;
 $breakpoint4: 1020px;
 $breakpoint5: 832px;
+$breakpoint6: 630px;
 
 @mixin devices1 {
   @media screen and (max-width: $breakpoint1) {
@@ -39,6 +40,12 @@ $breakpoint5: 832px;
 
 @mixin devices5 {
   @media screen and (max-width: $breakpoint5) {
+    @content
+  }
+}
+
+@mixin devices6 {
+  @media screen and (max-width: $breakpoint6) {
     @content
   }
 }
@@ -304,6 +311,7 @@ $breakpoint5: 832px;
   right: 0;
   top: 0;
   z-index: 42;
+
   //
   //&::before {
   //  content: '';
@@ -320,7 +328,25 @@ $breakpoint5: 832px;
   &__container {
     width: 100%;
     padding: 52px 65px 0 60px;
+    @include devices4 {
+      padding: 25px 16px 0;
+    }
+    @include devices6 {
+      padding: 25px 16px 0;
+    }
+  }
 
+  &__row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &__to-be-hidden {
+    display: flex;
     @include devices3 {
       position: fixed;
       right: 0;
@@ -332,20 +358,14 @@ $breakpoint5: 832px;
       width: auto;
       top: 72px;
     }
-
-  }
-
-  &__row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    font-size: 16px;
-    line-height: 1.5;
   }
 
   &__column {
     &_logo {
       margin-right: auto;
+      @include devices3 {
+        width: auto;
+      }
     }
 
     &_contacts {
@@ -419,9 +439,14 @@ $breakpoint5: 832px;
   position: relative;
   overflow: hidden;
   display: flex;
-
+  @include devices2 {
+    margin-top: 63px;
+  }
   @include devices1 {
     background-image: url('../img/Palladiumlab_small.svg');
+    background-size: contain;
+  }
+  @include devices6 {
     background-size: contain;
   }
 
@@ -433,6 +458,9 @@ $breakpoint5: 832px;
     justify-content: center;
     width: 100%;
     margin: 0 auto;
+    @include devices6 {
+      margin-top: 450px;
+    }
   }
 
   &__content {
@@ -458,6 +486,9 @@ $breakpoint5: 832px;
       font-size: 50px;
       max-width: 85%;
     }
+    @include devices6 {
+      font-size: 28px;
+    }
   }
 
   &__subtitle {
@@ -467,6 +498,9 @@ $breakpoint5: 832px;
     line-height: 1.66;
     opacity: $font-opacity;
     text-align: center;
+    @include devices6 {
+      font-size: 16px;
+    }
   }
 
   &__services {
@@ -483,6 +517,9 @@ $breakpoint5: 832px;
       max-width: 80%;
       justify-content: center;
     }
+    @include devices6 {
+      font-size: 16px;
+    }
   }
 
   &__service-item {
@@ -497,11 +534,20 @@ $breakpoint5: 832px;
       right: -12px;
       border-radius: 50%;
       background-color: $font-color;
+      @include devices6 {
+        width: 4px;
+        height: 4px;
+        bottom: 2px;
+        right: -8px;
+      }
     }
   }
 
   &__service-item:not(:first-of-type) {
     padding-left: 24px;
+    @include devices6 {
+      padding-left: 14px;
+    }
   }
 }
 
@@ -513,6 +559,10 @@ $breakpoint5: 832px;
   @include devices2 {
     padding-left: 80px;
     padding-right: 80px;
+  }
+  @include devices6 {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
 }
@@ -526,6 +576,9 @@ $breakpoint5: 832px;
     display: flex;
     flex-direction: column;
     max-width: 1110px;
+    @include devices6 {
+      max-width: 100%;
+    }
   }
 
   &__description {
@@ -536,6 +589,10 @@ $breakpoint5: 832px;
     margin: 45px 0;
     @include devices3 {
       font-size: 36px;;
+    }
+    @include devices6 {
+      font-size: 20px;
+      margin: 0;
     }
   }
 
@@ -591,8 +648,11 @@ $breakpoint5: 832px;
     flex-direction: column;
     margin-bottom: 72px;
   }
+  @include devices6 {
+    max-width: 100%;
+  }
 
-  & __info {
+  &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -606,6 +666,18 @@ $breakpoint5: 832px;
     align-items: flex-start;
     @include devices3 {
       margin-top: 60px;
+    }
+    @include devices6 {
+
+    }
+
+    &_img {
+      height: 668px;
+      width: 526px;
+      @include devices5 {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
@@ -628,6 +700,9 @@ $breakpoint5: 832px;
     @include devices3 {
       font-size: 36px;
     }
+    @include devices6 {
+      font-size: 28px;
+    }
   }
 
   &__description {
@@ -641,11 +716,10 @@ $breakpoint5: 832px;
     @include devices3 {
       max-width: 526px;
     }
-  }
-
-  &__img {
-    height: 668px;
-    width: 526px;
+    @include devices6 {
+      font-size: 16px;
+      max-width: 100%;
+    }
   }
 
   &:nth-child(even) .project__info {
@@ -675,26 +749,49 @@ $breakpoint5: 832px;
 }
 
 .team {
-  height: 100vh;
+  height: 946px;
   width: 100%;
   @include devices3 {
-    height: 100vh;
+    height: 812px;
     display: flex;
+    align-items: flex-end;
     justify-content: center;
+
+  }
+
+  &__member-photo {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    @include devices3 {
+      object-fit: cover;
+      height: 538px;
+    }
   }
 
   &__member {
-    background-image: url(../img/Mikhail.png);
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: contain;
-    z-index: 1;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  &__member-info {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    @include devices2 {
+      padding-left: 8px;
+    }
     @include devices3 {
-      width: 100%;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding-left: 0;
+      top: -220px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
     }
   }
 
@@ -703,10 +800,8 @@ $breakpoint5: 832px;
     font-weight: 700;
     font-size: 48px;
     line-height: 1.16;
-    padding-top: 522px;
-    @include devices3 {
+    @include devices2 {
       font-size: 36px;
-      padding-top: 0;
     }
   }
 
@@ -756,6 +851,9 @@ $breakpoint5: 832px;
 
   &__links-item:not(:first-of-type) {
     padding-left: 36px;
+    @include devices3 {
+      padding-left: 24px;
+    }
   }
 
   &__links-item_big {
@@ -766,6 +864,9 @@ $breakpoint5: 832px;
 
     @include devices3 {
       font-size: 28px;
+    }
+    @include devices6 {
+      font-size: 20px;
     }
 
 
@@ -797,6 +898,10 @@ $breakpoint5: 832px;
     max-width: 1104px;
     @include devices3 {
       font-size: 36px;
+      max-width: 100%;
+    }
+    @include devices6 {
+      font-size: 20px;
     }
   }
 }
@@ -816,6 +921,9 @@ $breakpoint5: 832px;
   visibility: hidden;
   opacity: 0;
   transition: all .8s ease-in-out;
+  @include devices6 {
+    justify-content: center;
+  }
 
   &__container {
     z-index: 999;
@@ -826,6 +934,12 @@ $breakpoint5: 832px;
     border-radius: 12px;
     margin-bottom: 48px;
     margin-left: 45px;
+    @include devices3 {
+      width: 70%;
+      margin-bottom: 40px;
+      margin-left: 10px;
+      justify-content: center;
+    }
   }
 
   &__text {
@@ -835,6 +949,7 @@ $breakpoint5: 832px;
     line-height: 1.14;
     padding: 21px 24px;
     opacity: $font-opacity;
+
   }
 
   &__btn {
