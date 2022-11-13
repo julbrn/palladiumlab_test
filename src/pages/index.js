@@ -1,32 +1,24 @@
+console.log("test");
+
 import './styles.css';
 import Cursor from '../js/cursor';
-// import ClickableElement from './js/clickableElement';
-//
+import Popup from '../js/popup';
+//import ClickableElement from '../js/clickableElement';
 
-const circle = document.querySelector('.round-cursor')
+//модалка
+const popup = new Popup('.cookies-popup', '.cookies-popup__btn');
+popup.setOpeningTimeout();
+popup.setEventListeners();
 const cursor = new Cursor(document.querySelector('.round-cursor'));
-//const button = new ClickableElement(document.querySelector('.magnet'));
-//
-//
-// button.on('enter', () => cursor.enter());
-// button.on('leave', () => cursor.leave());
+//const button = new ClickableElement(document.querySelector('.button'));
 const lang = document.querySelectorAll('.link_lang')[1];
+
 //Русский язык активный по дефолту
 lang.click();
 lang.focus();
+// button.on('enter', () => cursor.enter());
+// button.on('leave', () => cursor.leave());
 
-const links = document.querySelectorAll(".wavy-link");
 
-links.forEach(link => {
-  link.addEventListener("mouseleave", () => {
-
-    circle.style.display = "block";
-  });
-
-  link.addEventListener("mouseover", () => {
-
-    circle.style.display = "none";
-  });
-
-});
-
+// document.querySelector('.link').addEventListener("mouseover", function () {
+// //   document.querySelector('.round-cursor').style.display = 'none';

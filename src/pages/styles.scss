@@ -1,5 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
+@import 'animate.css';
 
 $dark-bg-color: #111;
 $font-color: #fff;
@@ -94,6 +95,18 @@ span {
   right: 0;
   top: 0;
   z-index: 42;
+  //
+  //&::before {
+  //  content: '';
+  //  position: absolute;
+  //  left: 0;
+  //  right: 0;
+  //  top: 0;
+  //  height: 220px;
+  //  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  //  pointer-events: none;
+  //  transition: 0.4s;
+  //}
 
   &__container {
     width: 100%;
@@ -479,3 +492,67 @@ span {
   }
 }
 
+.cookies-popup {
+  z-index: 998;
+  display: flex;
+  position: fixed;
+  justify-content: flex-start;
+  align-items: flex-end;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, .7);
+  visibility: hidden;
+  opacity: 0;
+  transition: all .8s ease-in-out;
+
+  &__container {
+    z-index: 999;
+    width: 446px;
+    background-color: #181B23;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 48px;
+    margin-left: 45px;
+  }
+
+  &__text {
+    font-family: $font_Averta;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    padding: 21px 24px;
+    opacity: $font-opacity;
+  }
+
+  &__btn {
+    width: 96px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: #333745;
+    font-family: $font_Averta;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    border: none;
+    outline: none;
+    margin-right: 12px;
+    color: $font-color;
+
+    &:hover {
+      background-color: #5b6070;
+    }
+  }
+
+  &__link {
+    color: $font-color;
+  }
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}

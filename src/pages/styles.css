@@ -1,5 +1,6 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
+@import 'animate.css';
 * {
   margin: 0;
   padding: 0;
@@ -397,6 +398,66 @@
   margin-top: 45px;
   margin-bottom: 45px;
   max-width: 1104px;
+}
+
+.cookies-popup {
+  z-index: 998;
+  display: flex;
+  position: fixed;
+  justify-content: flex-start;
+  align-items: flex-end;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+}
+.cookies-popup__container {
+  z-index: 999;
+  width: 446px;
+  background-color: #181B23;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 48px;
+  margin-left: 45px;
+}
+.cookies-popup__text {
+  font-family: "Averta", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  padding: 21px 24px;
+  opacity: 72%;
+}
+.cookies-popup__btn {
+  width: 96px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: #333745;
+  font-family: "Averta", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  border: none;
+  outline: none;
+  margin-right: 12px;
+  color: #fff;
+}
+.cookies-popup__btn:hover {
+  background-color: #5b6070;
+}
+.cookies-popup__link {
+  color: #fff;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */

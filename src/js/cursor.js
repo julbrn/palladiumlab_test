@@ -42,3 +42,4 @@ export default class Cursor {
     requestAnimationFrame(() => this.render());
   }
 }
+
