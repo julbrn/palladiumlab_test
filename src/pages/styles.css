@@ -113,6 +113,12 @@
   width: 170px;
   height: 42px;
 }
+@media screen and (max-width: 1240px) {
+  .logo__image {
+    width: 150px;
+    height: 30px;
+  }
+}
 
 .link {
   text-decoration: none;
@@ -144,6 +150,24 @@
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 1440px) {
+  .nav {
+    width: 90px;
+  }
+}
+@media screen and (max-width: 1240px) {
+  .nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: auto;
+    top: 72px;
+  }
+}
 .nav__link {
   display: flex;
   align-items: center;
@@ -155,9 +179,11 @@
 .nav__link:hover .nav__text {
   transform: translateX(0);
   font-size: 92px;
+  line-height: 1.1;
 }
 .nav__link:hover::before {
   opacity: 0;
+  transform: rotate(-90deg) translateY(-50%);
 }
 .nav__link::before {
   content: attr(data-title);
@@ -175,14 +201,14 @@
   left: 0;
   top: 50%;
   margin-top: -65px;
-  transition: 0.4s ease-in-out;
+  transition: 0.4s ease-out;
   will-change: transform;
 }
 .nav__text {
   font-family: "Averta", sans-serif;
   display: block;
   font-weight: 700;
-  transition: 0.4s ease-in-out;
+  transition: 0.5s ease-in-out;
   flex: none;
   transform: translateX(-101%);
 }
@@ -201,6 +227,19 @@
   width: 100%;
   padding: 52px 65px 0 60px;
 }
+@media screen and (max-width: 1240px) {
+  .header__container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: auto;
+    top: 72px;
+  }
+}
 .header__row {
   display: flex;
   width: 100%;
@@ -218,8 +257,18 @@
 .header__column_contacts-item {
   padding-right: 24px;
 }
+@media screen and (max-width: 1440px) {
+  .header__column_contacts-item {
+    padding: 0 16px;
+  }
+}
 .header__column_partnership {
   padding: 0 60px;
+}
+@media screen and (max-width: 1440px) {
+  .header__column_partnership {
+    padding: 0 40px;
+  }
 }
 .header__column_lang-list {
   list-style: none;
@@ -234,11 +283,29 @@
   bottom: 0;
   z-index: 42;
 }
+@media screen and (max-width: 1240px) {
+  .footer {
+    position: absolute;
+  }
+}
 .footer__row {
   display: flex;
   margin: 0 60px 54px;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (max-width: 1240px) {
+  .footer__row {
+    flex-direction: column;
+    margin: 0 0 26px 16px;
+    justify-content: end;
+    align-items: start;
+  }
+}
+@media screen and (max-width: 1240px) {
+  .footer__column:last-of-type {
+    padding-top: 4px;
+  }
 }
 
 .hero {
@@ -251,13 +318,18 @@
   overflow: hidden;
   display: flex;
 }
+@media screen and (max-width: 1456px) {
+  .hero {
+    background-image: url("../img/Palladiumlab_small.svg");
+    background-size: contain;
+  }
+}
 .hero__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  width: 1170px;
   margin: 0 auto;
 }
 .hero__content {
@@ -278,6 +350,12 @@
   margin-bottom: 40px;
   text-align: center;
 }
+@media screen and (max-width: 1020px) {
+  .hero__title {
+    font-size: 50px;
+    max-width: 85%;
+  }
+}
 .hero__subtitle {
   font-family: "Averta", sans-serif;
   font-weight: 400;
@@ -294,6 +372,13 @@
   list-style: none;
   display: flex;
   opacity: 72%;
+}
+@media screen and (max-width: 832px) {
+  .hero__services {
+    flex-wrap: wrap;
+    max-width: 80%;
+    justify-content: center;
+  }
 }
 .hero__service-item {
   position: relative;
@@ -318,6 +403,12 @@
   position: relative;
   margin: auto;
 }
+@media screen and (max-width: 1440px) {
+  .main-container {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
 
 .skills {
   width: 100%;
@@ -327,7 +418,7 @@
   margin-bottom: 96px;
   display: flex;
   flex-direction: column;
-  width: 1110px;
+  max-width: 1110px;
 }
 .skills__description {
   font-family: "Averta", sans-serif;
@@ -335,6 +426,11 @@
   line-height: 1.16;
   font-size: 48px;
   margin: 45px 0;
+}
+@media screen and (max-width: 1240px) {
+  .skills__description {
+    font-size: 36px;
+  }
 }
 .skills__title {
   font-family: "Averta", sans-serif;
@@ -368,12 +464,24 @@
 .projects {
   padding-bottom: 192px;
 }
+@media screen and (max-width: 1240px) {
+  .projects {
+    padding-bottom: 0;
+  }
+}
 
 .project {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 60px;
   max-width: 1138px;
+}
+@media screen and (max-width: 1240px) {
+  .project {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 72px;
+  }
 }
 .project __info {
   display: flex;
@@ -386,6 +494,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+@media screen and (max-width: 1240px) {
+  .project__img-container {
+    margin-top: 60px;
+  }
 }
 .project__category {
   font-family: "Averta", sans-serif;
@@ -403,6 +516,11 @@
   font-size: 48px;
   padding-top: 9px;
 }
+@media screen and (max-width: 1240px) {
+  .project__name {
+    font-size: 36px;
+  }
+}
 .project__description {
   font-family: "Averta", sans-serif;
   font-weight: 400;
@@ -411,6 +529,11 @@
   opacity: 72%;
   padding-top: 29px;
   padding-bottom: 35px;
+}
+@media screen and (max-width: 1240px) {
+  .project__description {
+    max-width: 526px;
+  }
 }
 .project__img {
   height: 668px;
@@ -437,13 +560,32 @@
   grid-row: 1;
 }
 
+.team {
+  height: 100vh;
+  width: 100%;
+}
+@media screen and (max-width: 1240px) {
+  .team {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+}
 .team__member {
-  height: 946px;
   background-image: url(../img/Mikhail.png);
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: contain;
   z-index: 1;
+}
+@media screen and (max-width: 1240px) {
+  .team__member {
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .team__member-name {
   font-family: "Averta", sans-serif;
@@ -451,6 +593,12 @@
   font-size: 48px;
   line-height: 1.16;
   padding-top: 522px;
+}
+@media screen and (max-width: 1240px) {
+  .team__member-name {
+    font-size: 36px;
+    padding-top: 0;
+  }
 }
 .team__member-job {
   font-family: "Averta", sans-serif;
@@ -498,6 +646,11 @@
   line-height: 1.16;
   font-size: 36px;
 }
+@media screen and (max-width: 1240px) {
+  .contacts__links-item_big {
+    font-size: 28px;
+  }
+}
 .contacts__links-item_big:hover {
   background-image: none;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -521,6 +674,11 @@
   margin-top: 45px;
   margin-bottom: 45px;
   max-width: 1104px;
+}
+@media screen and (max-width: 1240px) {
+  .contacts__text {
+    font-size: 36px;
+  }
 }
 
 .cookies-popup {

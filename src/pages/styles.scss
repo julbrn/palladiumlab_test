@@ -7,6 +7,41 @@ $font-opacity: 72%;
 $font_Zona: 'Zona Pro', sans-serif;
 $font_Averta: 'Averta', sans-serif;
 $transparent-white: rgba(255, 255, 255, 0.2);
+$breakpoint1: 1456px;
+$breakpoint2: 1440px;
+$breakpoint3: 1240px;
+$breakpoint4: 1020px;
+$breakpoint5: 832px;
+
+@mixin devices1 {
+  @media screen and (max-width: $breakpoint1) {
+    @content
+  }
+}
+
+@mixin devices2 {
+  @media screen and (max-width: $breakpoint2) {
+    @content
+  }
+}
+
+@mixin devices3 {
+  @media screen and (max-width: $breakpoint3) {
+    @content
+  }
+}
+
+@mixin devices4 {
+  @media screen and (max-width: $breakpoint4) {
+    @content
+  }
+}
+
+@mixin devices5 {
+  @media screen and (max-width: $breakpoint5) {
+    @content
+  }
+}
 
 * {
   margin: 0;
@@ -137,6 +172,11 @@ $transparent-white: rgba(255, 255, 255, 0.2);
 .logo__image {
   width: 170px;
   height: 42px;
+
+  @include devices3 {
+    width: 150px;
+    height: 30px;
+  }
 }
 
 .link {
@@ -173,6 +213,22 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
 
+  @include devices2 {
+    width: 90px;
+  }
+
+  @include devices3 {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    width: auto;
+    top: 72px;
+  }
+
   &__wrapper {
 
   }
@@ -196,10 +252,12 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     &:hover .nav__text {
       transform: translateX(0);
       font-size: 92px;
+      line-height: 1.1;
     }
 
     &:hover::before {
       opacity: 0;
+      transform: rotate(-90deg) translateY(-50%);
     }
 
     &::before {
@@ -218,7 +276,7 @@ $transparent-white: rgba(255, 255, 255, 0.2);
       left: 0;
       top: 50%;
       margin-top: -65px;
-      transition: 0.4s ease-in-out;
+      transition: 0.4s ease-out;
       will-change: transform;
     }
   }
@@ -227,7 +285,7 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     font-family: $font_Averta;
     display: block;
     font-weight: 700;
-    transition: 0.4s ease-in-out;
+    transition: 0.5s ease-in-out;
     flex: none;
     transform: translateX(-101%);
   }
@@ -262,6 +320,19 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   &__container {
     width: 100%;
     padding: 52px 65px 0 60px;
+
+    @include devices3 {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      width: auto;
+      top: 72px;
+    }
+
   }
 
   &__row {
@@ -288,10 +359,16 @@ $transparent-white: rgba(255, 255, 255, 0.2);
 
     &_contacts-item {
       padding-right: 24px;
+      @include devices2 {
+        padding: 0 16px;
+      }
     }
 
     &_partnership {
       padding: 0 60px;
+      @include devices2 {
+        padding: 0 40px;
+      }
     }
 
     &_lang-list {
@@ -308,12 +385,28 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   right: 0;
   bottom: 0;
   z-index: 42;
+  @include devices3 {
+    position: absolute;
+  }
 
   &__row {
     display: flex;
     margin: 0 60px 54px;
     justify-content: space-between;
     align-items: center;
+
+    @include devices3 {
+      flex-direction: column;
+      margin: 0 0 26px 16px;
+      justify-content: end;
+      align-items: start;
+    }
+  }
+
+  &__column:last-of-type {
+    @include devices3 {
+      padding-top: 4px;
+    }
   }
 }
 
@@ -327,13 +420,18 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   overflow: hidden;
   display: flex;
 
+  @include devices1 {
+    background-image: url('../img/Palladiumlab_small.svg');
+    background-size: contain;
+  }
+
+
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    width: 1170px;
     margin: 0 auto;
   }
 
@@ -356,6 +454,10 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     margin-top: 25px;
     margin-bottom: 40px;
     text-align: center;
+    @include devices4 {
+      font-size: 50px;
+      max-width: 85%;
+    }
   }
 
   &__subtitle {
@@ -375,6 +477,12 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     list-style: none;
     display: flex;
     opacity: $font-opacity;
+
+    @include devices5 {
+      flex-wrap: wrap;
+      max-width: 80%;
+      justify-content: center;
+    }
   }
 
   &__service-item {
@@ -402,6 +510,11 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   padding-left: 270px;
   position: relative;
   margin: auto;
+  @include devices2 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
 }
 
 .skills {
@@ -412,7 +525,7 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     margin-bottom: 96px;
     display: flex;
     flex-direction: column;
-    width: 1110px;
+    max-width: 1110px;
   }
 
   &__description {
@@ -421,6 +534,9 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     line-height: 1.16;
     font-size: 48px;
     margin: 45px 0;
+    @include devices3 {
+      font-size: 36px;;
+    }
   }
 
   &__title {
@@ -457,6 +573,10 @@ $transparent-white: rgba(255, 255, 255, 0.2);
 
 .projects {
   padding-bottom: 192px;
+
+  @include devices3 {
+    padding-bottom: 0;
+  }
 }
 
 
@@ -465,6 +585,12 @@ $transparent-white: rgba(255, 255, 255, 0.2);
   grid-template-columns: 1fr 1fr;
   column-gap: 60px;
   max-width: 1138px;
+
+  @include devices3 {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 72px;
+  }
 
   & __info {
     display: flex;
@@ -478,6 +604,9 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    @include devices3 {
+      margin-top: 60px;
+    }
   }
 
   &__category {
@@ -496,6 +625,9 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     line-height: 1.16;
     font-size: 48px;
     padding-top: 9px;
+    @include devices3 {
+      font-size: 36px;
+    }
   }
 
   &__description {
@@ -506,6 +638,9 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     opacity: $font-opacity;
     padding-top: 29px;
     padding-bottom: 35px;
+    @include devices3 {
+      max-width: 526px;
+    }
   }
 
   &__img {
@@ -540,15 +675,27 @@ $transparent-white: rgba(255, 255, 255, 0.2);
 }
 
 .team {
-
+  height: 100vh;
+  width: 100%;
+  @include devices3 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
 
   &__member {
-    height: 946px;
     background-image: url(../img/Mikhail.png);
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
     z-index: 1;
+    @include devices3 {
+      width: 100%;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__member-name {
@@ -557,6 +704,10 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     font-size: 48px;
     line-height: 1.16;
     padding-top: 522px;
+    @include devices3 {
+      font-size: 36px;
+      padding-top: 0;
+    }
   }
 
   &__member-job {
@@ -613,6 +764,10 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     line-height: 1.16;
     font-size: 36px;
 
+    @include devices3 {
+      font-size: 28px;
+    }
+
 
     &:hover {
       background-image: none;
@@ -640,6 +795,9 @@ $transparent-white: rgba(255, 255, 255, 0.2);
     margin-top: 45px;
     margin-bottom: 45px;
     max-width: 1104px;
+    @include devices3 {
+      font-size: 36px;
+    }
   }
 }
 
