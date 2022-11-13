@@ -4,7 +4,6 @@
 $dark-bg-color: #111;
 $font-color: #fff;
 $font-opacity: 72%;
-$font_Zona: 'Zona Pro', sans-serif;
 $font_Averta: 'Averta', sans-serif;
 $transparent-white: rgba(255, 255, 255, 0.2);
 $breakpoint1: 1456px;
@@ -592,7 +591,7 @@ $breakpoint6: 630px;
     }
     @include devices6 {
       font-size: 20px;
-      margin: 0;
+      margin: 22px 0 30px;
     }
   }
 
@@ -767,6 +766,9 @@ $breakpoint6: 630px;
       object-fit: cover;
       height: 538px;
     }
+    @include devices4 {
+      object-fit: contain;
+    }
   }
 
   &__member {
@@ -847,12 +849,25 @@ $breakpoint6: 630px;
     list-style: none;
     display: flex;
     margin-bottom: 70px;
+
+    &_big {
+      @include devices3 {
+        flex-direction: column;
+      }
+    }
   }
 
-  &__links-item:not(:first-of-type) {
+  &__links-item_small:not(:first-of-type) {
     padding-left: 36px;
     @include devices3 {
       padding-left: 24px;
+    }
+  }
+
+  &__links-item_big {
+    padding-right: 36px;
+    @include devices3 {
+      padding-right: 24px;
     }
   }
 
@@ -864,6 +879,7 @@ $breakpoint6: 630px;
 
     @include devices3 {
       font-size: 28px;
+      padding-left: 0;
     }
     @include devices6 {
       font-size: 20px;
@@ -921,24 +937,32 @@ $breakpoint6: 630px;
   visibility: hidden;
   opacity: 0;
   transition: all .8s ease-in-out;
-  @include devices6 {
+  @include devices5 {
     justify-content: center;
   }
 
   &__container {
     z-index: 999;
     width: 446px;
+    height: 74px;
     background-color: #181B23;
     display: flex;
     align-items: center;
     border-radius: 12px;
     margin-bottom: 48px;
-    margin-left: 45px;
-    @include devices3 {
-      width: 70%;
-      margin-bottom: 40px;
-      margin-left: 10px;
-      justify-content: center;
+    margin-left: 48px;
+    padding-right: 12px;
+    @include devices4 {
+      width: 80%;
+      margin-bottom: 30px;
+      margin-left: 30px;
+    }
+    @include devices4 {
+      width: 60%;
+    }
+    @include devices6 {
+      width: 90%;
+      margin-left: 0;
     }
   }
 
@@ -947,9 +971,11 @@ $breakpoint6: 630px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
-    padding: 21px 24px;
+    padding: 0 24px;
     opacity: $font-opacity;
-
+    @include devices4 {
+      padding: 0 9px;
+    }
   }
 
   &__btn {
@@ -963,8 +989,11 @@ $breakpoint6: 630px;
     line-height: 1.5;
     border: none;
     outline: none;
-    margin-right: 12px;
     color: $font-color;
+
+    @include devices5 {
+      width: 70%;
+    }
 
     &:hover {
       background-color: #5b6070;
