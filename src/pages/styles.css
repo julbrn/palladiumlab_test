@@ -47,6 +47,36 @@
     opacity: 1;
   }
 }
+.gradient {
+  position: relative;
+}
+.gradient__overlay {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+.gradient__circle {
+  background-size: contain;
+  z-index: -3;
+  position: fixed;
+}
+.gradient__circle_left {
+  width: 1600px;
+  height: 1600px;
+  top: -42%;
+  left: -32%;
+}
+.gradient__circle_right {
+  width: 1400px;
+  height: 1400px;
+  top: 25%;
+  right: -20%;
+}
+
 .page {
   background-color: #111;
   min-width: 320px;
@@ -61,6 +91,7 @@
   justify-content: center;
 }
 .page__noise {
+  z-index: -1;
   background: transparent url("../img/Noise.png") repeat;
   position: fixed;
   top: -50%;
@@ -677,17 +708,6 @@
   object-fit: contain;
   width: 100%;
   height: auto;
-}
-@media screen and (max-width: 1240px) {
-  .team__member-photo {
-    object-fit: cover;
-    height: 538px;
-  }
-}
-@media screen and (max-width: 1020px) {
-  .team__member-photo {
-    object-fit: contain;
-  }
 }
 .team__member {
   width: 100%;

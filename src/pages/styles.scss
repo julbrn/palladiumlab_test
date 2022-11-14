@@ -107,6 +107,41 @@ $breakpoint6: 630px;
   }
 }
 
+.gradient {
+  position: relative;
+
+  &__overlay {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .8);
+    z-index: -1;
+  }
+
+  &__circle {
+    background-size: contain;
+    z-index: -3;
+    position: fixed;
+
+    &_left {
+      width: 1600px;
+      height: 1600px;
+      top: -42%;
+      left: -32%;
+    }
+
+    &_right {
+      width: 1400px;
+      height: 1400px;
+      top: 25%;
+      right: -20%;
+    }
+  }
+
+}
+
 .page {
   background-color: $dark-bg-color;
   min-width: 320px;
@@ -121,6 +156,7 @@ $breakpoint6: 630px;
   justify-content: center;
 
   &__noise {
+    z-index: -1;
     background: transparent url('../img/Noise.png') repeat;
     position: fixed;
     top: -50%;
@@ -169,7 +205,6 @@ $breakpoint6: 630px;
       transform: translate(5%, 0)
     }
   }
-
 }
 
 .main {
@@ -762,13 +797,6 @@ $breakpoint6: 630px;
     object-fit: contain;
     width: 100%;
     height: auto;
-    @include devices3 {
-      object-fit: cover;
-      height: 538px;
-    }
-    @include devices4 {
-      object-fit: contain;
-    }
   }
 
   &__member {
