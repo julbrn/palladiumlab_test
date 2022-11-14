@@ -32,7 +32,7 @@ let colors = [[0, 26, 255],
 
 let step = 0;
 let colorIndices = [0, 1, 2, 3];
-let gradientSpeed = .08;
+let gradientSpeed = .07;
 
 function updateGradient() {
   let c0_0 = colors[colorIndices[0]];
@@ -69,4 +69,4 @@ function updateGradient() {
   }
 }
 
-setInterval(updateGradient, 600);
+setInterval(updateGradient, 700);

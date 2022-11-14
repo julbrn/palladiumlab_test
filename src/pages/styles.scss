@@ -13,6 +13,23 @@ $breakpoint4: 1020px;
 $breakpoint5: 832px;
 $breakpoint6: 630px;
 
+body::-webkit-scrollbar {
+  width: .3em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(108, 122, 137, .5);
+  outline: none;
+}
+
+body::-webkit-scrollbar {
+  cursor: pointer;
+}
+
 @mixin devices1 {
   @media screen and (max-width: $breakpoint1) {
     @content
@@ -68,7 +85,7 @@ $breakpoint6: 630px;
     left: 0;
     display: block;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 1500;
 
     &__circle {
       stroke: $font-color;
@@ -109,6 +126,7 @@ $breakpoint6: 630px;
 
 .gradient {
   position: relative;
+  background-color: transparent;
 
   &__overlay {
     position: fixed;
@@ -117,20 +135,34 @@ $breakpoint6: 630px;
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, .8);
-    z-index: -1;
+    z-index: -3;
   }
 
   &__circle {
     background-size: contain;
-    z-index: -3;
+    z-index: -4;
     position: fixed;
-    opacity: .6;
+    opacity: .7;
+    filter: blur(70px);
+    background-color: transparent;
 
     &_left {
       width: 1400px;
       height: 1400px;
       top: -47%;
       left: -35%;
+      @include devices3 {
+        width: 800px;
+        height: 800px;
+        top: -27%;
+        left: -25%;
+      }
+      @include devices5 {
+        width: 500px;
+        height: 500px;
+        top: 0;
+        left: 0;
+      }
     }
 
     &_right {
@@ -138,6 +170,18 @@ $breakpoint6: 630px;
       height: 1200px;
       top: 27%;
       right: -27%;
+      @include devices3 {
+        width: 600px;
+        height: 600px;
+        top: -37%;
+        right: -15%;
+      }
+      @include devices5 {
+        width: 400px;
+        height: 400px;
+        top: 50%;
+        right: 0;
+      }
     }
   }
 
@@ -163,7 +207,7 @@ $breakpoint6: 630px;
   }
 
   &__noise {
-    z-index: -1;
+    z-index: 0;
     background: transparent url('../img/Noise.png') repeat;
     position: fixed;
     top: -50%;
@@ -365,6 +409,9 @@ $breakpoint6: 630px;
     background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     transition: 0.4s;
+    @include devices4 {
+      height: 80px;;
+    }
   }
 
   &__container {
@@ -463,6 +510,9 @@ $breakpoint6: 630px;
     pointer-events: none;
     transition: 0.4s;
     z-index: 0;
+    @include devices4 {
+      height: 80px;;
+    }
   }
 
   &__row {
@@ -492,6 +542,7 @@ $breakpoint6: 630px;
 }
 
 .hero {
+  z-index: -2;
   text-align: center;
   background-image: url('../img/Palladiumlab_background.svg');
   background-repeat: no-repeat;
@@ -509,6 +560,10 @@ $breakpoint6: 630px;
   }
   @include devices6 {
     background-size: contain;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    min-height: 100vh;
   }
 
 
@@ -519,9 +574,6 @@ $breakpoint6: 630px;
     justify-content: center;
     width: 100%;
     margin: 0 auto;
-    @include devices6 {
-      margin-top: 450px;
-    }
   }
 
   &__content {
@@ -531,6 +583,9 @@ $breakpoint6: 630px;
     justify-content: center;
     width: 100%;
     min-height: 100vh;
+    @include devices5 {
+      align-items: flex-start;
+    }
   }
 
 
@@ -547,8 +602,9 @@ $breakpoint6: 630px;
       font-size: 45px;
       max-width: 85%;
     }
-    @include devices6 {
+    @include devices5 {
       font-size: 28px;
+      text-align: left;
     }
   }
 
@@ -559,8 +615,11 @@ $breakpoint6: 630px;
     line-height: 1.66;
     opacity: $font-opacity;
     text-align: center;
-    @include devices6 {
+    @include devices5 {
       font-size: 16px;
+    }
+    @include devices5 {
+      text-align: left;
     }
   }
 
@@ -571,46 +630,57 @@ $breakpoint6: 630px;
     line-height: 1.33;
     list-style: none;
     display: flex;
+    justify-content: space-between;
     opacity: $font-opacity;
 
     @include devices4 {
       flex-wrap: wrap;
-      max-width: 80%;
+      max-width: 85%;
       justify-content: center;
-    }
-    @include devices6 {
       font-size: 16px;
+    }
+    @include devices5 {
+      justify-content: flex-start;
+      max-width: 312px;
+    }
+  }
+
+  &__service-item:not(:first-of-type) {
+    padding-left: 12px;
+    @include devices6 {
+      padding-left: 8px;
+    }
+  }
+
+
+  &__service-item:not(:nth-of-type(2)):not(:nth-of-type(4)) {
+    @include devices5 {
+      padding-left: 0;
     }
   }
 
   &__service-item {
     position: relative;
+    padding-right: 12px;
 
     &:after {
       content: '';
       position: absolute;
       width: 6px;
       height: 6px;
-      bottom: 6px;
-      right: -12px;
+      bottom: 0.23em;
+      right: 0;
       border-radius: 50%;
       background-color: $font-color;
-      @include devices6 {
+      @include devices4 {
         width: 4px;
         height: 4px;
-        bottom: 2px;
-        right: -8px;
+        bottom: 0.26em;
       }
     }
   }
-
-  &__service-item:not(:first-of-type) {
-    padding-left: 24px;
-    @include devices6 {
-      padding-left: 14px;
-    }
-  }
 }
+
 
 .main-container {
   width: 100%;
