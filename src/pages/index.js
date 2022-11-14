@@ -47,15 +47,15 @@ function updateGradient() {
   let color1 = "#" + ((r1 << 16) | (g1 << 8) | b1).toString(16);
 
 
-  const color3 = "#111";
+  const color3 = "#000";
 
   let r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
   let g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
   let b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
   let color2 = "#" + ((r2 << 16) | (g2 << 8) | b2).toString(16);
 
-  document.querySelector(".gradient__circle_left").style.background = `-webkit-radial-gradient(center, ${color1} 0%, ${color3} 75%)`
-  document.querySelector(".gradient__circle_right").style.background = `-webkit-radial-gradient(center, ${color2} 0%, ${color3} 65%)`
+  document.querySelector(".gradient__circle_left").style.background = `-webkit-radial-gradient(center, ${color1} 0%, ${color3} 65%)`
+  document.querySelector(".gradient__circle_right").style.background = `-webkit-radial-gradient(center, ${color2} 0%, ${color3} 55%)`
   step += gradientSpeed;
   if (step >= 1) {
     step %= 1;

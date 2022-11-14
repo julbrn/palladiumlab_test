@@ -63,22 +63,23 @@
   background-size: contain;
   z-index: -3;
   position: fixed;
+  opacity: 0.6;
 }
 .gradient__circle_left {
-  width: 1600px;
-  height: 1600px;
-  top: -42%;
-  left: -32%;
-}
-.gradient__circle_right {
   width: 1400px;
   height: 1400px;
-  top: 25%;
-  right: -20%;
+  top: -47%;
+  left: -35%;
+}
+.gradient__circle_right {
+  width: 1200px;
+  height: 1200px;
+  top: 27%;
+  right: -27%;
 }
 
 .page {
-  background-color: #111;
+  background-color: #000;
   min-width: 320px;
   width: 100%;
   font-family: "Averta", sans-serif;
