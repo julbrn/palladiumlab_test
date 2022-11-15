@@ -1,6 +1,8 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 
+@import url('swiper/swiper-bundle.css');
+
 $dark-bg-color: #000;
 $font-color: #fff;
 $font-opacity: 72%;
@@ -134,7 +136,7 @@ body::-webkit-scrollbar {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, .7);
     z-index: -3;
   }
 
@@ -151,36 +153,61 @@ body::-webkit-scrollbar {
       height: 1400px;
       top: -47%;
       left: -35%;
-      @include devices3 {
-        width: 800px;
-        height: 800px;
+      animation: float 5s ease infinite;
+
+      @include devices5 {
+        width: 900px;
+        height: 900px;
         top: -27%;
         left: -25%;
       }
-      @include devices5 {
+      @include devices6 {
         width: 500px;
         height: 500px;
         top: 0;
         left: 0;
       }
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        40% {
+          transform: translatey(-18rem);
+        }
+        100% {
+          transform: translatey(0);
+        }
+      }
     }
 
     &_right {
-      width: 1200px;
-      height: 1200px;
-      top: 27%;
-      right: -27%;
-      @include devices3 {
-        width: 600px;
-        height: 600px;
-        top: -37%;
-        right: -15%;
-      }
+      width: 1300px;
+      height: 1300px;
+      bottom: -55%;
+      right: -22%;
+      animation: float 8s ease infinite;
       @include devices5 {
+        width: 700px;
+        height: 700px;
+        bottom: -27%;
+        right: -10%;
+      }
+      @include devices6 {
         width: 400px;
         height: 400px;
-        top: 50%;
+        bottom: 40%;
         right: 0;
+      }
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        40% {
+          transform: translatey(18rem);
+        }
+        100% {
+          transform: translatey(0);
+        }
       }
     }
   }
@@ -208,7 +235,7 @@ body::-webkit-scrollbar {
 
   &__noise {
     z-index: 0;
-    background: transparent url('../img/Noise.png') repeat;
+    background: transparent url('../img/noise2.png') repeat 0 0;
     position: fixed;
     top: -50%;
     left: -50%;
@@ -216,7 +243,7 @@ body::-webkit-scrollbar {
     bottom: -50%;
     width: 200%;
     height: 200vh;
-    animation: bg-animation .2s infinite;
+    animation: bg-animation .4s infinite;
     opacity: .9;
     visibility: visible;
   }
@@ -259,7 +286,7 @@ body::-webkit-scrollbar {
 }
 
 .main {
-
+  overflow-x: hidden;
 }
 
 .logo__image {
@@ -522,7 +549,7 @@ body::-webkit-scrollbar {
     justify-content: space-between;
     align-items: center;
 
-    @include devices3 {
+    @include devices5 {
       flex-direction: column;
       margin: 0 0 26px 60px;
       justify-content: end;
@@ -551,7 +578,7 @@ body::-webkit-scrollbar {
   position: relative;
   overflow: hidden;
   display: flex;
-  @include devices1 {
+  @include devices2 {
     background-image: url('../img/Palladiumlab_small.svg');
     background-size: contain;
   }
@@ -603,8 +630,10 @@ body::-webkit-scrollbar {
       max-width: 85%;
     }
     @include devices5 {
-      font-size: 28px;
       text-align: left;
+    }
+    @include devices6 {
+      font-size: 28px;
     }
   }
 
@@ -616,10 +645,10 @@ body::-webkit-scrollbar {
     opacity: $font-opacity;
     text-align: center;
     @include devices5 {
-      font-size: 16px;
-    }
-    @include devices5 {
       text-align: left;
+    }
+    @include devices6 {
+      font-size: 16px;
     }
   }
 
@@ -773,12 +802,14 @@ body::-webkit-scrollbar {
   column-gap: 60px;
   max-width: 1138px;
 
-  @include devices3 {
+  @include devices4 {
+    column-gap: 30px;
+  }
+
+  @include devices6 {
     display: flex;
     flex-direction: column;
     margin-bottom: 72px;
-  }
-  @include devices6 {
     max-width: 100%;
   }
 
@@ -804,7 +835,7 @@ body::-webkit-scrollbar {
     &_img {
       height: 668px;
       width: 526px;
-      @include devices5 {
+      @include devices4 {
         width: 100%;
         height: auto;
       }
@@ -878,91 +909,167 @@ body::-webkit-scrollbar {
   }
 }
 
+//
+//.swiper-wrapper {
+//  z-index: 5;
+//  height: 1300px;
+//  max-width: 100%;
+//}
+//
+//.swiper {
+//  width: 100%;
+//  height: 1000px;
+//
+//}
+//
+//.swiper-slide {
+//  height: 900px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//
+//}
+.swiper-pagination-bullets {
+  max-width: 390px;
+}
+
+.swiper-pagination-bullet-active-main {
+  z-index: 10 !important;
+}
+
+.swiper-pagination-bullet-active-next {
+  transform: scale(.8) !important;
+}
+
+.swiper-pagination-bullet-active-next-next {
+  transform: scale(.7) !important;
+  left: 22% !important;
+  z-index: -1 !important;
+}
+
+.swiper-pagination-bullet-active-prev-prev {
+  transform: scale(.7) !important;
+  left: -22% !important;
+  z-index: -1 !important;
+}
+
+.swiper-pagination-bullet-active-prev {
+  transform: scale(.8) !important;
+}
+
+.swiper-pagination-bullet {
+  padding: 0;
+  margin: 0 !important;
+  cursor: none;
+  width: 96px;
+  height: 96px;
+  opacity: 1;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+
+  &:nth-of-type(1) {
+    background-image: url('../../src/img/Mikhail.png');
+    background-color: #232B1E;
+  }
+
+  &:nth-of-type(2) {
+    background-image: url('../../src/img/Pavel.png');
+    background-color: #1C2426;
+    margin-left: -30px !important;
+  }
+
+  &:nth-of-type(3) {
+    background-image: url('../../src/img/Vasiliy.png');
+    background-color: #232B1E;
+    background-size: cover;
+    margin-left: -30px !important;
+  }
+}
+
 .team {
   height: 946px;
   width: 100%;
-  @include devices3 {
-    height: 812px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+  background-color: darkolivegreen;
+  overflow: visible;
 
-  }
 
   &__member-photo {
     object-fit: contain;
-    width: 100%;
+    display: block;
+    max-width: 860px;
     height: auto;
   }
 
-  &__member {
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-
-  &__member-info {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    @include devices2 {
-      padding-left: 8px;
-    }
-    @include devices3 {
-      padding-left: 0;
-      top: -220px;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0;
-      right: 0;
-      text-align: center;
-    }
-  }
-
-  &__member-name {
-    font-family: $font_Averta;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 1.16;
-    @include devices2 {
-      font-size: 36px;
-    }
-  }
-
-  &__member-job {
-    font-family: $font_Averta;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.66;
-    opacity: $font-opacity;
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
-
-  .arrows {
-    &__btn {
-      border-radius: 50%;
-      border: 2px solid $transparent-white;
-      height: 60px;
-      width: 60px;
-      background-color: transparent;
-
-      &_back {
-        margin-right: 24px;
-        background-image: url("../img/arrow_back.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-
-      &_forward {
-        background-image: url("../img/arrow_forward.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-      }
-    }
-  }
+  //
+  //  &__member {
+  //    width: 100%;
+  //    display: flex;
+  //    align-items: flex-end;
+  //    justify-content: center;
+  //  }
+  //
+  //  &__member-info {
+  //    position: absolute;
+  //    top: 50%;
+  //    left: 0;
+  //    @include devices2 {
+  //      padding-left: 8px;
+  //    }
+  //    @include devices3 {
+  //      padding-left: 0;
+  //      top: -220px;
+  //      margin-left: auto;
+  //      margin-right: auto;
+  //      left: 0;
+  //      right: 0;
+  //      text-align: center;
+  //    }
+  //  }
+  //
+  //  &__member-name {
+  //    font-family: $font_Averta;
+  //    font-weight: 700;
+  //    font-size: 48px;
+  //    line-height: 1.16;
+  //    @include devices2 {
+  //      font-size: 36px;
+  //    }
+  //  }
+  //
+  //  &__member-job {
+  //    font-family: $font_Averta;
+  //    font-weight: 400;
+  //    font-size: 18px;
+  //    line-height: 1.66;
+  //    opacity: $font-opacity;
+  //    margin-top: 24px;
+  //    margin-bottom: 24px;
+  //  }
+  //
+  //  .arrows {
+  //    &__btn {
+  //      border-radius: 50%;
+  //      border: 2px solid $transparent-white;
+  //      height: 60px;
+  //      width: 60px;
+  //      background-color: transparent;
+  //
+  //      &_back {
+  //        margin-right: 24px;
+  //        background-image: url("../img/arrow_back.png");
+  //        background-repeat: no-repeat;
+  //        background-position: center center;
+  //      }
+  //
+  //      &_forward {
+  //        background-image: url("../img/arrow_forward.png");
+  //        background-repeat: no-repeat;
+  //        background-position: center center;
+  //      }
+  //    }
+  //  }
 }
 
 .contacts {
