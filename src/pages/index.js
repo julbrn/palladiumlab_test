@@ -1,3 +1,5 @@
+import {enable} from "core-js/internals/internal-metadata";
+
 console.log("test");
 import updateGradient from "../js/gradient";
 import './styles.css';
@@ -30,6 +32,11 @@ setInterval(updateGradient, 700);
 
 //слайдер
 new Swiper('.swiper', {
+  lazyImageLoad: true,
+  loop: true,
+  keyboard: {
+    enabled: true,
+  },
   // modules: [Navigation, Pagination],
   pagination: {
     el: '.swiper-pagination',
@@ -37,7 +44,7 @@ new Swiper('.swiper', {
     dynamicBullets: true,
   },
   navigation: {
-    nextEl: '.swiper-button_next',
-    prevEl: '.swiper-button_prev',
+    nextEl: '.swiper-nav-right',
+    prevEl: '.swiper-nav-left',
   },
 });
