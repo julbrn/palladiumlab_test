@@ -1,6 +1,10 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 @import url("swiper/swiper-bundle.css");
+a, button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -92,11 +96,11 @@
 }
 @media screen and (max-width: 630px) {
   .gradient__circle_left {
-    filter: blur(15px);
-    width: 500px;
-    height: 500px;
-    top: 0;
-    left: -10%;
+    filter: blur(17px);
+    width: 750px;
+    height: 750px;
+    top: -2%;
+    left: -34%;
     animation: float2 8s ease infinite;
   }
 }
@@ -128,10 +132,10 @@
 }
 @media screen and (max-width: 630px) {
   .gradient__circle_right {
-    width: 400px;
-    height: 400px;
-    bottom: -2%;
-    right: -2%;
+    width: 700px;
+    height: 700px;
+    bottom: -15%;
+    right: -38%;
     animation: float2 8s ease infinite;
   }
 }

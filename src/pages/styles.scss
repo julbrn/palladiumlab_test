@@ -15,6 +15,7 @@ $breakpoint4: 1020px;
 $breakpoint5: 832px;
 $breakpoint6: 630px;
 
+
 //body::-webkit-scrollbar {
 //  width: .3em;
 //}
@@ -31,6 +32,10 @@ $breakpoint6: 630px;
 //body::-webkit-scrollbar {
 //  cursor: pointer;
 //}
+
+a, button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
 @mixin devices1 {
   @media screen and (max-width: $breakpoint1) {
@@ -168,11 +173,11 @@ $breakpoint6: 630px;
         left: -25%;
       }
       @include devices6 {
-        filter: blur(15px);
-        width: 500px;
-        height: 500px;
-        top: 0;
-        left: -10%;
+        filter: blur(17px);
+        width: 750px;
+        height: 750px;
+        top: -2%;
+        left: -34%;
         animation: float2 8s ease infinite;
       }
       @keyframes float {
@@ -201,10 +206,10 @@ $breakpoint6: 630px;
         right: -10%;
       }
       @include devices6 {
-        width: 400px;
-        height: 400px;
-        bottom: -2%;
-        right: -2%;
+        width: 700px;
+        height: 700px;
+        bottom: -15%;
+        right: -38%;
         animation: float2 8s ease infinite;
       }
       @keyframes float {
