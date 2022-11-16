@@ -20,12 +20,7 @@ const cursor = new Cursor(document.querySelector('.round-cursor'));
 const lang = document.querySelectorAll('.link_lang')[1];
 lang.click();
 lang.focus();
-// button.on('enter', () => cursor.enter());
-// button.on('leave', () => cursor.leave());
 
-//const button = new ClickableElement(document.querySelector('.button'));
-// document.querySelector('.link').addEventListener("mouseover", function () {
-// //   document.querySelector('.round-cursor').style.display = 'none';
 
 //градиент фона
 setInterval(updateGradient, 700);
@@ -55,7 +50,6 @@ function reveal() {
   for (let i = 0; i < reveals.length; i++) {
     let windowHeight = window.innerHeight;
     let elementTop = reveals[i].getBoundingClientRect().top;
-    let elementBottom = reveals[i].getBoundingClientRect().bottom;
     let elementVisible = 45;
 
     if (elementTop < windowHeight - elementVisible) {
@@ -67,4 +61,6 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
+
+
 
