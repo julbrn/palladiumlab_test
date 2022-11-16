@@ -148,6 +148,12 @@ body::-webkit-scrollbar {
     filter: blur(70px);
     background-color: transparent;
 
+
+    @include devices5 {
+      opacity: .8;
+      filter: blur(15px);
+    }
+
     &_left {
       width: 1400px;
       height: 1400px;
@@ -162,10 +168,12 @@ body::-webkit-scrollbar {
         left: -25%;
       }
       @include devices6 {
+        filter: blur(15px);
         width: 500px;
         height: 500px;
         top: 0;
-        left: 0;
+        left: -10%;
+        animation: float2 8s ease infinite;
       }
       @keyframes float {
         0% {
@@ -195,8 +203,9 @@ body::-webkit-scrollbar {
       @include devices6 {
         width: 400px;
         height: 400px;
-        bottom: 40%;
-        right: 0;
+        bottom: -2%;
+        right: -2%;
+        animation: float2 8s ease infinite;
       }
       @keyframes float {
         0% {
@@ -204,6 +213,17 @@ body::-webkit-scrollbar {
         }
         40% {
           transform: translatey(18rem);
+        }
+        100% {
+          transform: translatey(0);
+        }
+      }
+      @keyframes float2 {
+        0% {
+          transform: translatey(0px);
+        }
+        40% {
+          transform: translatey(5rem);
         }
         100% {
           transform: translatey(0);
@@ -229,9 +249,11 @@ body::-webkit-scrollbar {
   @include devices2 {
     padding: 0 60px;
   }
+
   @include devices6 {
     padding: 0 16px;
   }
+
 
   &__noise {
     z-index: 0;
@@ -426,20 +448,20 @@ body::-webkit-scrollbar {
   z-index: 42;
 
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 220px;
-    background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    transition: 0.4s;
-    @include devices4 {
-      height: 80px;;
-    }
-  }
+  //&::before {
+  //  content: '';
+  //  position: absolute;
+  //  left: 0;
+  //  right: 0;
+  //  top: 0;
+  //  height: 220px;
+  //  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  //  pointer-events: none;
+  //  transition: 0.4s;
+  //  @include devices4 {
+  //    height: 80px;;
+  //  }
+  //}
 
   &__container {
     width: 100%;
@@ -713,17 +735,17 @@ body::-webkit-scrollbar {
 
 .main-container {
   width: 100%;
-  padding-left: 270px;
+  padding: 0 270px;
   position: relative;
   margin: auto;
   @include devices2 {
-    padding-left: 0;
+    padding: 0;
   }
-  //@include devices6 {
-  //  padding-left: 16px;
-  //  padding-right: 16px;
-  //}
-
+  @include devices6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .skills {
@@ -909,28 +931,99 @@ body::-webkit-scrollbar {
   }
 }
 
-//
-//.swiper-wrapper {
-//  z-index: 5;
-//  height: 1300px;
-//  max-width: 100%;
-//}
-//
-//.swiper {
-//  width: 100%;
-//  height: 1000px;
-//
-//}
-//
-//.swiper-slide {
-//  height: 900px;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//
-//}
+.swiper {
+  height: 100%;
+  position: relative;
+  @include devices4 {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+swiper-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  @include devices4 {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+}
+
+.swiper-nav {
+  position: absolute;
+  left: 0;
+  bottom: 230px;
+  padding: 0;
+  z-index: 10;
+  @include devices2 {
+    left: 36px;
+  }
+  @include devices3 {
+    left: 0;
+  }
+  @include devices4 {
+    bottom: unset;
+    display: flex;
+    justify-content: center;
+    top: 210px;
+    width: 100%;
+  }
+  @include devices6 {
+    top: 160px;
+  }
+
+}
+
+.swiper-nav-left {
+  margin-right: 24px;
+}
+
+.swiper-pagination {
+  position: absolute;
+  top: 230px;
+  left: unset !important;
+  right: -10rem !important;
+  margin: 0;
+
+  @include devices4 {
+    text-align: center;
+    top: unset;
+    bottom: 40px;
+    right: auto !important;
+    left: auto !important;
+  }
+  @include devices4 {
+    text-align: center;
+    top: unset;
+    bottom: 40px;
+    right: -10% !important;
+    left: auto !important;
+  }
+
+  @include devices6 {
+    right: -25% !important;
+  }
+}
+
 .swiper-pagination-bullets {
   max-width: 390px;
+  display: block;
+  width: 100%;
+  @include devices4 {
+    max-width: 223px;
+  }
 }
 
 .swiper-pagination-bullet-active-main {
@@ -968,6 +1061,10 @@ body::-webkit-scrollbar {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
+  @include devices4 {
+    width: 64px;
+    height: 64px;
+  }
 
   &:nth-of-type(1) {
     background-image: url('../../src/img/Mikhail.png');
@@ -978,6 +1075,9 @@ body::-webkit-scrollbar {
     background-image: url('../../src/img/Pavel.png');
     background-color: #1C2426;
     margin-left: -30px !important;
+    @include devices4 {
+      margin-left: -23px !important;
+    }
   }
 
   &:nth-of-type(3) {
@@ -985,91 +1085,92 @@ body::-webkit-scrollbar {
     background-color: #232B1E;
     background-size: cover;
     margin-left: -30px !important;
+    @include devices4 {
+      margin-left: -23px !important;
+    }
   }
 }
 
 .team {
   height: 946px;
   width: 100%;
-  background-color: darkolivegreen;
   overflow: visible;
+  position: relative;
 
+  @include devices4 {
+    position: static;
+    height: 100vh;
+
+  }
+
+  @include devices6 {
+    margin-left: -16px;
+    margin-right: -16px;
+
+  }
 
   &__member-photo {
     object-fit: contain;
     display: block;
-    max-width: 860px;
+    max-width: 1033px;
     height: auto;
+    @include devices4 {
+      object-fit: cover;
+      height: 70vh;
+      position: static;
+      max-width: 100%;
+    }
+
+    @include devices6 {
+      max-height: 75vh;
+    }
   }
 
-  //
-  //  &__member {
-  //    width: 100%;
-  //    display: flex;
-  //    align-items: flex-end;
-  //    justify-content: center;
-  //  }
-  //
-  //  &__member-info {
-  //    position: absolute;
-  //    top: 50%;
-  //    left: 0;
-  //    @include devices2 {
-  //      padding-left: 8px;
-  //    }
-  //    @include devices3 {
-  //      padding-left: 0;
-  //      top: -220px;
-  //      margin-left: auto;
-  //      margin-right: auto;
-  //      left: 0;
-  //      right: 0;
-  //      text-align: center;
-  //    }
-  //  }
-  //
-  //  &__member-name {
-  //    font-family: $font_Averta;
-  //    font-weight: 700;
-  //    font-size: 48px;
-  //    line-height: 1.16;
-  //    @include devices2 {
-  //      font-size: 36px;
-  //    }
-  //  }
-  //
-  //  &__member-job {
-  //    font-family: $font_Averta;
-  //    font-weight: 400;
-  //    font-size: 18px;
-  //    line-height: 1.66;
-  //    opacity: $font-opacity;
-  //    margin-top: 24px;
-  //    margin-bottom: 24px;
-  //  }
-  //
-  //  .arrows {
-  //    &__btn {
-  //      border-radius: 50%;
-  //      border: 2px solid $transparent-white;
-  //      height: 60px;
-  //      width: 60px;
-  //      background-color: transparent;
-  //
-  //      &_back {
-  //        margin-right: 24px;
-  //        background-image: url("../img/arrow_back.png");
-  //        background-repeat: no-repeat;
-  //        background-position: center center;
-  //      }
-  //
-  //      &_forward {
-  //        background-image: url("../img/arrow_forward.png");
-  //        background-repeat: no-repeat;
-  //        background-position: center center;
-  //      }
-  //    }
-  //  }
+  &__member-info {
+    position: absolute;
+    left: 0;
+    bottom: 314px;
+    @include devices2 {
+      margin-left: 36px;
+    }
+    @include devices3 {
+      margin-left: 0;
+    }
+    @include devices4 {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 72px;
+    }
+  }
+
+  &__member-name {
+    font-family: $font_Averta;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.16;
+    @include devices2 {
+      font-size: 36px;
+    }
+    @include devices6 {
+      font-size: 28px;
+    }
+  }
+
+  &__member-job {
+    font-family: $font_Averta;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.66;
+    opacity: $font-opacity;
+    margin-top: 24px;
+
+    @include devices6 {
+      font-size: 16px;
+      margin-top: 4px
+    }
+  }
 }
 
 .contacts {
@@ -1240,3 +1341,16 @@ body::-webkit-scrollbar {
   visibility: visible;
   opacity: 1;
 }
+
+//.reveal{
+//  position: relative;
+//  transform: translateY(150px);
+//  opacity: 0;
+//  transition: 1s all ease;
+//}
+//
+//.reveal.active{
+//  transform: translateY(0);
+//  opacity: 1;
+//}
+

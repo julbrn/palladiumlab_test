@@ -36,8 +36,8 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "core-js": "^3.26.0",
-    "gsap": "^3.11.3",
     "html-loader": "^4.2.0",
     "swiper": "^8.4.4"
   }

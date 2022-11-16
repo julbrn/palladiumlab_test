@@ -1,11 +1,11 @@
 import {enable} from "core-js/internals/internal-metadata";
-
-console.log("test");
+import 'animate.css';
 import updateGradient from "../js/gradient";
 import './styles.css';
 import Cursor from '../js/cursor';
 import Popup from '../js/popup';
 import Swiper from 'swiper/bundle';
+
 //import ClickableElement from '../js/clickableElement';
 
 //модалка
@@ -37,7 +37,6 @@ new Swiper('.swiper', {
   keyboard: {
     enabled: true,
   },
-  // modules: [Navigation, Pagination],
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -48,3 +47,24 @@ new Swiper('.swiper', {
     prevEl: '.swiper-nav-left',
   },
 });
+
+let reveals = document.querySelectorAll(".reveal");
+
+function reveal() {
+
+  for (let i = 0; i < reveals.length; i++) {
+    let windowHeight = window.innerHeight;
+    let elementTop = reveals[i].getBoundingClientRect().top;
+    let elementBottom = reveals[i].getBoundingClientRect().bottom;
+    let elementVisible = 45;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+
