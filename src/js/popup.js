@@ -24,7 +24,7 @@ export default class Popup {
   setOpeningTimeout() {
     setTimeout(() => {
       this.openPopup();
-    }, 9000);
+    }, 19000);
   }
 
 }

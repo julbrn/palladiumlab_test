@@ -237,6 +237,12 @@ a, button {
 
 .main {
   overflow: hidden;
+  padding-left: 141px;
+}
+@media screen and (max-width: 1240px) {
+  .main {
+    padding-left: 0;
+  }
 }
 
 .logo__image {
@@ -495,6 +501,7 @@ a, button {
 }
 
 .hero {
+  min-height: 100vh;
   z-index: -2;
   text-align: center;
   background-image: url("../img/Palladiumlab_background.svg");
@@ -671,7 +678,7 @@ a, button {
 .skills {
   width: 100%;
 }
-.skills__container {
+.skills __container {
   margin-top: 47px;
   margin-bottom: 96px;
   display: flex;
@@ -679,7 +686,7 @@ a, button {
   max-width: 1110px;
 }
 @media screen and (max-width: 630px) {
-  .skills__container {
+  .skills __container {
     max-width: 100%;
   }
 }
@@ -853,27 +860,14 @@ a, button {
 }
 
 .swiper {
-  height: 100%;
-  position: relative;
-}
-@media screen and (max-width: 1020px) {
-  .swiper {
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-swiper-wrapper {
-  display: flex;
   justify-content: center;
+  flex-direction: column;
+  display: flex;
 }
 
 .swiper-slide {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
 }
 @media screen and (max-width: 1020px) {
   .swiper-slide {
@@ -884,36 +878,31 @@ swiper-wrapper {
     max-width: 100%;
   }
 }
+@media screen and (max-width: 832px) {
+  .swiper-slide {
+    text-align: center;
+    position: static;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .swiper-nav {
   position: absolute;
   left: 0;
-  bottom: 230px;
+  bottom: 35%;
   padding: 0;
   z-index: 10;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 832px) {
   .swiper-nav {
-    left: 36px;
-  }
-}
-@media screen and (max-width: 1240px) {
-  .swiper-nav {
-    left: 0;
-  }
-}
-@media screen and (max-width: 1020px) {
-  .swiper-nav {
+    padding-top: 50px;
     bottom: unset;
     display: flex;
     justify-content: center;
-    top: 210px;
+    top: unset;
+    position: static;
     width: 100%;
-  }
-}
-@media screen and (max-width: 630px) {
-  .swiper-nav {
-    top: 160px;
   }
 }
 
@@ -921,175 +910,33 @@ swiper-wrapper {
   margin-right: 24px;
 }
 
-.swiper-pagination {
-  position: absolute;
-  top: 230px;
-  left: unset !important;
-  right: -10rem !important;
-  margin: 0;
-}
-@media screen and (max-width: 1020px) {
-  .swiper-pagination {
-    text-align: center;
-    top: unset;
-    bottom: 40px;
-    right: auto !important;
-    left: auto !important;
-  }
-}
-@media screen and (max-width: 1020px) {
-  .swiper-pagination {
-    text-align: center;
-    top: unset;
-    bottom: 40px;
-    right: -10% !important;
-    left: auto !important;
-  }
-}
-@media screen and (max-width: 630px) {
-  .swiper-pagination {
-    right: -25% !important;
-  }
-}
-
-.swiper-pagination-bullets {
-  max-width: 390px;
-  display: block;
-  width: 100%;
-}
-@media screen and (max-width: 1020px) {
-  .swiper-pagination-bullets {
-    max-width: 223px;
-  }
-}
-
-.swiper-pagination-bullet-active-main {
-  z-index: 10 !important;
-}
-
-.swiper-pagination-bullet-active-next {
-  transform: scale(0.8) !important;
-}
-
-.swiper-pagination-bullet-active-next-next {
-  transform: scale(0.7) !important;
-  left: 22% !important;
-  z-index: -1 !important;
-}
-
-.swiper-pagination-bullet-active-prev-prev {
-  transform: scale(0.7) !important;
-  left: -22% !important;
-  z-index: -1 !important;
-}
-
-.swiper-pagination-bullet-active-prev {
-  transform: scale(0.8) !important;
-}
-
 .swiper-pagination-bullet {
-  padding: 0;
-  margin: 0 !important;
-  cursor: none;
-  width: 96px;
-  height: 96px;
-  opacity: 1;
-  background-color: transparent;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-}
-@media screen and (max-width: 1020px) {
-  .swiper-pagination-bullet {
-    width: 64px;
-    height: 64px;
-  }
-}
-.swiper-pagination-bullet:nth-of-type(1) {
-  background-image: url("../../src/img/Mikhail.png");
-  background-color: #232B1E;
-}
-.swiper-pagination-bullet:nth-of-type(2) {
-  background-image: url("../../src/img/Pavel.png");
-  background-color: #1C2426;
-  margin-left: -30px !important;
-}
-@media screen and (max-width: 1020px) {
-  .swiper-pagination-bullet:nth-of-type(2) {
-    margin-left: -23px !important;
-  }
-}
-.swiper-pagination-bullet:nth-of-type(3) {
-  background-image: url("../../src/img/Vasiliy.png");
-  background-color: #232B1E;
-  background-size: cover;
-  margin-left: -30px !important;
-}
-@media screen and (max-width: 1020px) {
-  .swiper-pagination-bullet:nth-of-type(3) {
-    margin-left: -23px !important;
-  }
+  background-color: #fff;
 }
 
 .team {
-  height: 946px;
+  min-height: 100vh;
   width: 100%;
   overflow: visible;
-  position: relative;
-}
-@media screen and (max-width: 1020px) {
-  .team {
-    position: static;
-    height: 100vh;
-  }
-}
-@media screen and (max-width: 630px) {
-  .team {
-    margin-left: -16px;
-    margin-right: -16px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .team__member-photo {
-  object-fit: contain;
-  display: block;
-  max-width: 1033px;
-  height: auto;
-}
-@media screen and (max-width: 1020px) {
-  .team__member-photo {
-    object-fit: cover;
-    height: 70vh;
-    position: static;
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 630px) {
-  .team__member-photo {
-    max-height: 75vh;
-  }
+  object-fit: cover;
+  max-width: 100%;
 }
 .team__member-info {
   position: absolute;
   left: 0;
-  bottom: 314px;
+  bottom: 45%;
+  text-align: left;
 }
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 832px) {
   .team__member-info {
-    margin-left: 36px;
-  }
-}
-@media screen and (max-width: 1240px) {
-  .team__member-info {
-    margin-left: 0;
-  }
-}
-@media screen and (max-width: 1020px) {
-  .team__member-info {
+    text-align: center;
     position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 72px;
+    padding-bottom: 10%;
   }
 }
 .team__member-name {
@@ -1123,9 +970,15 @@ swiper-wrapper {
   }
 }
 
+@media screen and (max-width: 832px) {
+  .swiper-pagination {
+    bottom: 18% !important;
+  }
+}
+
 .contacts {
   padding-top: 192px;
-  height: 100vh;
+  min-height: 100vh;
 }
 .contacts__links {
   list-style: none;
