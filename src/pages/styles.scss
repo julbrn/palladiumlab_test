@@ -85,6 +85,15 @@ a, button {
 
 }
 
+@media (hover: none) {
+  .round-cursor {
+    display: none;
+  }
+  * {
+    cursor: none
+  }
+}
+
 @media (any-pointer: fine) {
   .round-cursor {
     position: fixed;
@@ -381,18 +390,6 @@ a, button {
     top: 72px;
   }
 
-  &__wrapper {
-
-  }
-
-  &__container {
-
-  }
-
-  &__items {
-
-  }
-
   &__link {
     display: flex;
     align-items: center;
@@ -479,20 +476,20 @@ a, button {
   }
 
 
-  //&::before {
-  //  content: '';
-  //  position: absolute;
-  //  left: 0;
-  //  right: 0;
-  //  top: 0;
-  //  height: 220px;
-  //  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  //  pointer-events: none;
-  //  transition: 0.4s;
-  //  @include devices4 {
-  //    height: 80px;;
-  //  }
-  //}
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 220px;
+    background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+    transition: 0.4s;
+    @include devices5 {
+      height: 65px;
+    }
+  }
 
   &__container {
     width: 100%;
@@ -771,6 +768,10 @@ a, button {
 
 .skills {
   width: 100%;
+  margin-bottom: 85px;
+  @include devices6 {
+    margin-bottom: 120px;
+  }
 
   & __container {
     margin-top: 47px;
@@ -833,8 +834,8 @@ a, button {
 .projects {
   padding-bottom: 192px;
 
-  @include devices3 {
-    padding-bottom: 0;
+  @include devices5 {
+    padding-bottom: 90px;
   }
 }
 
@@ -987,6 +988,7 @@ a, button {
   z-index: 10;
   @include devices5 {
     padding-top: 50px;
+    padding-bottom: 50px;
     bottom: unset;
     display: flex;
     justify-content: center;
@@ -1057,11 +1059,10 @@ a, button {
   }
 }
 
+/*
 .swiper-pagination {
-  @include devices5 {
-    bottom: 18% !important;
-  }
-}
+    bottom: 15% !important;
+}*/
 
 .contacts {
   padding-top: 192px;

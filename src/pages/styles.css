@@ -16,6 +16,14 @@ a, button {
   display: none;
 }
 
+@media (hover: none) {
+  .round-cursor {
+    display: none;
+  }
+  * {
+    cursor: none;
+  }
+}
 @media (any-pointer: fine) {
   .round-cursor {
     position: fixed;
@@ -380,6 +388,22 @@ a, button {
   display: block;
   background-color: #fff;
 }
+.header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  transition: 0.4s;
+}
+@media screen and (max-width: 832px) {
+  .header::before {
+    height: 65px;
+  }
+}
 .header__container {
   width: 100%;
   padding: 52px 65px 0 60px;
@@ -677,6 +701,12 @@ a, button {
 
 .skills {
   width: 100%;
+  margin-bottom: 85px;
+}
+@media screen and (max-width: 630px) {
+  .skills {
+    margin-bottom: 120px;
+  }
 }
 .skills __container {
   margin-top: 47px;
@@ -740,9 +770,9 @@ a, button {
 .projects {
   padding-bottom: 192px;
 }
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 832px) {
   .projects {
-    padding-bottom: 0;
+    padding-bottom: 90px;
   }
 }
 
@@ -897,6 +927,7 @@ a, button {
 @media screen and (max-width: 832px) {
   .swiper-nav {
     padding-top: 50px;
+    padding-bottom: 50px;
     bottom: unset;
     display: flex;
     justify-content: center;
@@ -970,12 +1001,10 @@ a, button {
   }
 }
 
-@media screen and (max-width: 832px) {
-  .swiper-pagination {
-    bottom: 18% !important;
-  }
-}
-
+/*
+.swiper-pagination {
+    bottom: 15% !important;
+}*/
 .contacts {
   padding-top: 192px;
   min-height: 100vh;

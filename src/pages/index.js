@@ -6,8 +6,6 @@ import Cursor from '../js/cursor';
 import Popup from '../js/popup';
 import Swiper from 'swiper/bundle';
 
-//import ClickableElement from '../js/clickableElement';
-
 //модалка
 const popup = new Popup('.cookies-popup', '.cookies-popup__btn');
 popup.setOpeningTimeout();
