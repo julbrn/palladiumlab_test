@@ -1,4 +1,3 @@
-import {gsap} from 'gsap';
 import {lerp, getCursorPos} from './utils';
 
 // отслеживаем положение мышки
@@ -17,7 +16,7 @@ export default class Cursor {
       scale: {previous: 1, current: 1, amt: 0.2},
       opacity: {previous: 1, current: 1, amt: 0.2}
     };
-//
+
     this.onCursorMove = () => {
       this.renderedStyles.tx.previous = this.renderedStyles.tx.current = cursor.x - this.bounds.width / 2;
       this.renderedStyles.ty.previous = this.renderedStyles.ty.previous = cursor.y - this.bounds.height / 2;

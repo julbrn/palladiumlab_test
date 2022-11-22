@@ -17,6 +17,7 @@ export default class Popup {
 
   setEventListeners() {
     this.button.addEventListener('click', (evt) => {
+      evt.preventDefault();
       this.closePopup();
     });
   }
@@ -24,7 +25,7 @@ export default class Popup {
   setOpeningTimeout() {
     setTimeout(() => {
       this.openPopup();
-    }, 10000);
+    }, 8000);
   }
 
 }

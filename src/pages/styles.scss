@@ -16,10 +16,10 @@ $breakpoint5: 832px;
 $breakpoint6: 630px;
 
 
-//body::-webkit-scrollbar {
-//  width: .3em;
-//}
-//
+body::-webkit-scrollbar {
+  width: .3em;
+}
+
 //body::-webkit-scrollbar-track {
 //  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 //}
@@ -35,6 +35,12 @@ $breakpoint6: 630px;
 
 a, button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 767px) {
+  * {
+    cursor: initial;
+  }
 }
 
 @mixin devices1 {
@@ -82,33 +88,24 @@ a, button {
 
 .round-cursor {
   display: none;
-
+  height: 33px;
+  width: 33px;
+  border: 2px solid $font-color;
+  border-radius: 50%;
+  transition: 0.1s;
+  transform: translate(-50%, -50%);
 }
 
-@media (hover: none) {
-  .round-cursor {
-    display: none;
-  }
-  * {
-    cursor: none
-  }
-}
-
-@media (any-pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   .round-cursor {
     position: fixed;
-    top: 0;
-    left: 0;
-    display: block;
+    background-color: transparent;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
     pointer-events: none;
     z-index: 1500;
-
-    &__circle {
-      stroke: $font-color;
-      fill: transparent;
-      stroke-width: 2.5px;
-      z-index: 1000;
-    }
+    mix-blend-mode: difference;
   }
 }
 
@@ -176,17 +173,17 @@ a, button {
       animation: float 5s ease infinite;
 
       @include devices5 {
-        width: 900px;
-        height: 900px;
-        top: -27%;
-        left: -25%;
+        width: 500px;
+        height: 500px;
+        top: -37%;
+        left: -35%;
       }
       @include devices6 {
         filter: blur(17px);
-        width: 750px;
-        height: 750px;
-        top: -2%;
-        left: -34%;
+        width: 600px;
+        height: 600px;
+        top: -15%;
+        left: -44%;
         animation: float2 8s ease infinite;
       }
       @keyframes float {
@@ -209,16 +206,16 @@ a, button {
       right: -22%;
       animation: float 8s ease infinite;
       @include devices5 {
-        width: 700px;
-        height: 700px;
+        width: 600px;
+        height: 600px;
         bottom: -27%;
-        right: -10%;
+        right: -20%;
       }
       @include devices6 {
-        width: 700px;
-        height: 700px;
-        bottom: -15%;
-        right: -38%;
+        width: 450px;
+        height: 450px;
+        bottom: -25%;
+        right: -48%;
         animation: float2 8s ease infinite;
       }
       @keyframes float {
@@ -345,23 +342,14 @@ a, button {
 
   &_lang {
     padding: 12px 14px;
-
-    &:focus {
-      border: solid 2px $font-color;
-      border-radius: 50%;
-      outline: none;
-    }
   }
 
+}
 
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:hover ~ .round-cursor {
-    transform: translate(-50%, -50%) scale(5);
-    opacity: 1;
-  }
+.hovered {
+  width: 58px;
+  height: 58px;
+  background-color: $font-color;
 }
 
 .nav {
@@ -530,6 +518,10 @@ a, button {
 
   &__column {
     z-index: 42;
+
+    &_lang-item:first-of-type {
+      text-decoration: underline;
+    }
 
     &_logo {
       margin-right: auto;
@@ -823,12 +815,12 @@ a, button {
   background-repeat: no-repeat;
   background-position: 0 25px;
 
-  &:hover {
-    background-image: none;
-    border: 2px solid $font-color;
-    border-radius: 30px;
-    padding: 15px 36px;
-  }
+  //&:hover {
+  //  background-image: none;
+  //  border: 2px solid $font-color;
+  //  border-radius: 30px;
+  //  padding: 15px 36px;
+  //}
 }
 
 .projects {
@@ -963,6 +955,8 @@ a, button {
 .swiper-slide {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
 
   @include devices4 {
     text-align: center;
@@ -983,7 +977,7 @@ a, button {
 .swiper-nav {
   position: absolute;
   left: 0;
-  bottom: 35%;
+  top: 22rem;
   padding: 0;
   z-index: 10;
   @include devices5 {
@@ -1000,6 +994,14 @@ a, button {
 
 .swiper-nav-left {
   margin-right: 24px;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.swiper-nav-right:hover {
+  transform: translateY(-1px);
 }
 
 .swiper-pagination-bullet {
@@ -1017,12 +1019,13 @@ a, button {
   &__member-photo {
     object-fit: cover;
     max-width: 100%;
+    max-height: 70vh;
   }
 
   &__member-info {
     position: absolute;
     left: 0;
-    bottom: 45%;
+    top: 14rem;
     text-align: left;
     @include devices5 {
       text-align: center;
@@ -1109,12 +1112,12 @@ a, button {
     }
 
 
-    &:hover {
-      background-image: none;
-      border: 2px solid $transparent-white;
-      border-radius: 30px;
-      padding: 15px 36px;
-    }
+    //&:hover {
+    //  background-image: none;
+    //  border: 2px solid $transparent-white;
+    //  border-radius: 30px;
+    //  padding: 15px 36px;
+    //}
   }
 
   &__subtitle {
@@ -1213,6 +1216,10 @@ a, button {
     border: none;
     outline: none;
     color: $font-color;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
 
     @include devices5 {
       width: 70%;

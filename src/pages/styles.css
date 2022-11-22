@@ -1,10 +1,19 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 @import url("swiper/swiper-bundle.css");
+body::-webkit-scrollbar {
+  width: 0.3em;
+}
+
 a, button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+@media (max-width: 767px) {
+  * {
+    cursor: initial;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -14,30 +23,24 @@ a, button {
 
 .round-cursor {
   display: none;
+  height: 33px;
+  width: 33px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: 0.1s;
+  transform: translate(-50%, -50%);
 }
 
-@media (hover: none) {
-  .round-cursor {
-    display: none;
-  }
-  * {
-    cursor: none;
-  }
-}
-@media (any-pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   .round-cursor {
     position: fixed;
-    top: 0;
-    left: 0;
-    display: block;
+    background-color: transparent;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
     pointer-events: none;
     z-index: 1500;
-  }
-  .round-cursor__circle {
-    stroke: #fff;
-    fill: transparent;
-    stroke-width: 2.5px;
-    z-index: 1000;
+    mix-blend-mode: difference;
   }
 }
 .animate__slideInUp:nth-child(1) {
@@ -96,19 +99,19 @@ a, button {
 }
 @media screen and (max-width: 832px) {
   .gradient__circle_left {
-    width: 900px;
-    height: 900px;
-    top: -27%;
-    left: -25%;
+    width: 500px;
+    height: 500px;
+    top: -37%;
+    left: -35%;
   }
 }
 @media screen and (max-width: 630px) {
   .gradient__circle_left {
     filter: blur(17px);
-    width: 750px;
-    height: 750px;
-    top: -2%;
-    left: -34%;
+    width: 600px;
+    height: 600px;
+    top: -15%;
+    left: -44%;
     animation: float2 8s ease infinite;
   }
 }
@@ -132,18 +135,18 @@ a, button {
 }
 @media screen and (max-width: 832px) {
   .gradient__circle_right {
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     bottom: -27%;
-    right: -10%;
+    right: -20%;
   }
 }
 @media screen and (max-width: 630px) {
   .gradient__circle_right {
-    width: 700px;
-    height: 700px;
-    bottom: -15%;
-    right: -38%;
+    width: 450px;
+    height: 450px;
+    bottom: -25%;
+    right: -48%;
     animation: float2 8s ease infinite;
   }
 }
@@ -271,17 +274,11 @@ a, button {
 .link_lang {
   padding: 12px 14px;
 }
-.link_lang:focus {
-  border: solid 2px #fff;
-  border-radius: 50%;
-  outline: none;
-}
-.link:hover {
-  cursor: pointer;
-}
-.link:hover ~ .round-cursor {
-  transform: translate(-50%, -50%) scale(5);
-  opacity: 1;
+
+.hovered {
+  width: 58px;
+  height: 58px;
+  background-color: #fff;
 }
 
 .nav {
@@ -446,6 +443,9 @@ a, button {
 }
 .header__column {
   z-index: 42;
+}
+.header__column_lang-item:first-of-type {
+  text-decoration: underline;
 }
 .header__column_logo {
   margin-right: auto;
@@ -760,12 +760,6 @@ a, button {
   background-repeat: no-repeat;
   background-position: 0 25px;
 }
-.wavy-link:hover {
-  background-image: none;
-  border: 2px solid #fff;
-  border-radius: 30px;
-  padding: 15px 36px;
-}
 
 .projects {
   padding-bottom: 192px;
@@ -898,6 +892,8 @@ a, button {
 .swiper-slide {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
 }
 @media screen and (max-width: 1020px) {
   .swiper-slide {
@@ -920,7 +916,7 @@ a, button {
 .swiper-nav {
   position: absolute;
   left: 0;
-  bottom: 35%;
+  top: 22rem;
   padding: 0;
   z-index: 10;
 }
@@ -940,6 +936,13 @@ a, button {
 .swiper-nav-left {
   margin-right: 24px;
 }
+.swiper-nav-left:hover {
+  transform: translateY(-1px);
+}
+
+.swiper-nav-right:hover {
+  transform: translateY(-1px);
+}
 
 .swiper-pagination-bullet {
   background-color: #fff;
@@ -956,11 +959,12 @@ a, button {
 .team__member-photo {
   object-fit: cover;
   max-width: 100%;
+  max-height: 70vh;
 }
 .team__member-info {
   position: absolute;
   left: 0;
-  bottom: 45%;
+  top: 14rem;
   text-align: left;
 }
 @media screen and (max-width: 832px) {
@@ -1051,12 +1055,6 @@ a, button {
   .contacts__links-item_big {
     font-size: 20px;
   }
-}
-.contacts__links-item_big:hover {
-  background-image: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  padding: 15px 36px;
 }
 .contacts__subtitle {
   font-family: "Averta", sans-serif;
@@ -1164,6 +1162,9 @@ a, button {
   border: none;
   outline: none;
   color: #fff;
+}
+.cookies-popup__btn:hover {
+  transform: translateY(-1px);
 }
 @media screen and (max-width: 832px) {
   .cookies-popup__btn {

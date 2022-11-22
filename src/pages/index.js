@@ -8,17 +8,24 @@ import Swiper from 'swiper/bundle';
 
 //модалка
 const popup = new Popup('.cookies-popup', '.cookies-popup__btn');
+const link = document.querySelectorAll('.link');
+const cursor2 = document.querySelector('.round-cursor');
 popup.setOpeningTimeout();
 popup.setEventListeners();
 
+link.forEach((item) => {
+  item.addEventListener('mouseenter', e => {
+    cursor2.classList.add('hovered')
+  })
+  item.addEventListener('mouseout', e => {
+    cursor2.classList.remove('hovered')
+  })
+})
+
+document.querySelector('.cookies-popup__btn').removeEventListener('touchend', popup.setEventListeners);
+
 //кастомный курсор
 const cursor = new Cursor(document.querySelector('.round-cursor'));
-
-//Русский язык активный по дефолту
-const lang = document.querySelectorAll('.link_lang')[1];
-lang.click();
-lang.focus();
-
 
 //градиент фона
 setInterval(updateGradient, 700);
